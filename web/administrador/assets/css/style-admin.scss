@@ -1,0 +1,178 @@
+/*
+    Estilo Jump!
+1. Reset
+2. Variables
+3. gral
+4. grilla
+5. footer
+6. navigation
+7. Secciones
+8. pagina inicio
+9. botones
+10. Modulos:
+a) noticias
+b) imagenes
+c) Sliders
+
+*/
+
+/* ---- 1 reset ---- */
+@import 'sass/reset';
+/* ---- 2 variables ---- */
+@import 'sass/variables';
+
+/*3. gral*/
+html, body {
+    position: relative;
+    font-family: $fuente-principal;
+    font-size: $fs-normal;
+    line-height: $lh-normal;
+    color: $negro;
+}
+
+
+
+.no-show-hidden {
+  visibility: hidden;
+}
+.no-show-display {
+  display: none;
+}
+
+//login
+.error-tag {
+  color: red;
+  font-size: 90%;
+  font-style: italic;
+  display: block;
+  margin: 15px 0;
+}
+.img-responsive {
+  width: 100%;
+}
+
+.image-selected {
+  border: 3px solid $danger!important;
+}
+
+
+small {
+  font-size: 80%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.titulo-gral-admin {
+    margin-bottom: 20px;
+    background-color: $gris;
+    color: $negro;
+    text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 120%;
+    line-height: 120%;
+    @media (min-width: $md) {
+      font-size: 150%;
+      line-height: 200%;
+      margin-top: 20px;
+    }
+  }
+
+  h4 {
+    font-size: 150%;
+    line-height: 120%;
+    @media (min-width: $md) {
+      font-size: 250%;
+      line-height: 150%;
+      margin-bottom: 10px;
+    }
+  }
+
+  img {
+    width: 100%;
+    @media (min-width: $md) {
+      width: 70%;
+    }
+  }
+
+  p {
+    font-size: 100%;
+    line-height: 120%;
+    margin: 10px 0;
+  }
+
+  .fecha-hoy {
+    font-size: 100%;
+    line-height: 120%;
+    padding: 10px 0;
+    @media (min-width: $md) {
+      font-size: 150%;
+      line-height: 120%;
+      padding: 30px 0;
+    }
+
+    strong {
+      @media (min-width: $md) {
+        font-size: 160%;
+        display: block;
+        margin: 20px 0 0;
+      }
+    }
+
+  }
+}
+
+.subtitulo-gral-admin {
+  text-align: center;
+  margin: 50px 0 30px;
+  h2 {
+    font-size: 150%;
+    line-height: 120%;
+    @media (min-width: $md) {
+      font-size: 200%;
+      line-height: 150%;
+      margin-bottom: 10px;
+    }
+  }  
+}
+
+h2 {
+  font-size: 150%;
+  line-height: 150%;
+  text-transform: uppercase;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 120%;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin: 10px 0; 
+}
+
+
+@import 'sass/grilla';
+
+@import 'sass/footer';
+
+@import 'sass/navigation';
+
+@import 'sass/login';
+
+@import 'sass/secciones';
+
+@import 'sass/inicio';
+
+@import 'sass/botones';
+
+@import 'sass/modulos';
+
+@import 'sass/noticias';
+
+@import 'sass/imagenes';
+
+@import 'sass/sliders';

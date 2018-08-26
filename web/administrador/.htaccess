@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+#esto lo puse yo
+RewriteEngine Off
+# evitar el listado de carpetas
+Options All -Indexes
+IndexIgnore *
+
+</IfModule>

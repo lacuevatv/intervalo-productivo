@@ -1,0 +1,46 @@
+.login-section {
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 20px;
+	@media (min-width: $md) {
+		padding: 100px 80px;
+		width: 480px;
+		margin: 0;
+	}
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 250%;
+	}
+}
+
+.form-group {
+	margin: 20px 0;
+	label {
+		height: 40px;
+		margin: 5px auto;
+		line-height: 30px;
+	}
+	input {
+		height: 40px;
+		margin: 5px auto;
+		padding: 0 7px;
+	}
+
+	select {
+		border: none;
+	    padding: 7px 5px;
+	    height: 40px;
+	    margin: 5px auto;
+	    font-size: 110%;
+	}
+
+	textarea {
+		width: 100%;
+		height: 100px;
+	}
+}
+
+.error-tag {
+	color: $danger;
+}

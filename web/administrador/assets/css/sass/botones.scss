@@ -1,0 +1,46 @@
+/*botones*/
+
+.btn {
+	display: inline-block;
+	color: $negro;
+	border: 1px solid $negro;
+	padding: 10px 25px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 20px auto 10px;
+	cursor: pointer;
+	@include border-radius(5px);
+	@media (min-width: $md) {
+		font-size: 80%;
+	}
+	&:hover {
+	    zoom: 1;
+	    filter: alpha(opacity=50);
+	    opacity: 0.5;
+	}
+}
+
+.btn-inverse {
+	border: 1px solid $blanco;
+	color: $blanco;
+}
+
+.btn-primary {
+	border: none;
+	color: $blanco;
+	background-color: $resaltado;
+}
+
+.btn-danger {
+	border: none;
+	color: $blanco;
+	background-color: $danger;
+}
+
+.btn-lg {
+	font-size: 120%;
+	line-height: 110%;
+	@media (min-width: $md) {
+		font-size: 100%;
+	}
+}

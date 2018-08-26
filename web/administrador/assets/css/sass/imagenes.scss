@@ -1,0 +1,123 @@
+
+.text-aclaracion {
+  font-size: 80%;
+  font-style: italic;
+}
+
+.instrucciones-medios {
+  padding-top: 20px; 
+  font-size: 80%;
+  padding-bottom: 20px;
+  strong {
+    font-weight: bold;
+  }
+}
+
+#wrapper-form-upload-galery {
+  border: 1px dashed $resaltado;
+}
+
+.recicle-bin-wrapper {
+  border: 1px dashed $danger; 
+  min-height: 150px;
+  padding: 20px 20px;
+  margin: 20px 0;
+}
+
+#recicle-bin {
+  min-height: 100px;
+  background-color: #efefef;
+  columns: 2;
+  padding: 5px;
+
+  li {
+    width: 100px;
+  }
+}
+
+#upload_imgs {
+  input[type="file"] {
+    font-size: 90%;
+  }
+}
+
+.lista-medios {
+  list-style: none;
+  display: flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.medio {
+  list-style: none;
+  width: 28%;
+  margin: 1%;
+
+  article {
+    position: relative;
+  }
+}
+
+.data-medio {
+  position: absolute;
+    width: 100%;
+    height: 96%;
+    top:0;
+    left:0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    color: $blanco;
+    text-transform: uppercase;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+
+  h1 {
+    font-size: 70%;
+    font-weight: bold;
+    //margin: 5px auto 5px;
+    //display: none;
+  }
+
+  p {
+    font-size: 80%;
+
+  }
+}
+
+.del-medio {
+  font-size: 70%!important;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: .5px solid $negro;
+}
