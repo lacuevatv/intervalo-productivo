@@ -5,6 +5,8 @@ define('DB_USER', 'dbuser');
 define('DB_PASS', '123');
 define('DB_NAME', 'intervalo_bd');
 //CARPETAS
+define ( 'BASEDIR', dirname( __FILE__ ) . '/../../' );
+define ( 'ADMINDIR', dirname( __FILE__ ) . '../../' );
 define ( 'TEMPLATEDIR', dirname( __FILE__ ) . '/../templates' );
 define ( 'MODULOSDIR', dirname( __FILE__ ) . '/modulos' );
 define ( 'UPLOADS', dirname( __FILE__ ) . '/../../contenido' );
@@ -32,16 +34,12 @@ $usertype = array(
 	array( 'status' => '1', 'nombre' => 'Editor'),
 	array( 'status' => 'a', 'nombre' => 'default'),
 );
-//variables de categorias de noticia
-global $categorias;//define las categorias para cargar noticias
-$categorias = array(
-	array( 'slug' => 'noticias', 'nombre' => 'Noticias'),
-);
+
+
 //variables de categorias de galeria de imagenes / si existen
 global $categoriasGalerias;//define las categorias para cargar galerias
 $categoriasGalerias = array(
 	array( 'slug' => 'galeria1', 'nombre' => 'Galeria 1'),
-	array( 'slug' => 'galeria2', 'nombre' => 'Galeria 2'),
 );
 
 //variables de categorias de galeria de archivos //normalmente pdf para descargar

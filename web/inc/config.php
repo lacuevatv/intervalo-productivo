@@ -43,8 +43,12 @@ define('POSTPERPAG', '20');//indica al paginador cuantos se muestran por pagina 
 //noticias
 global $categorias;
 $categorias = array(
-	array( 'slug' => 'novedades', 'nombre' => 'Novedades' ),
-	array( 'slug' => 'agenda', 'nombre' => 'Agenda Institucional' ),
+	array( 'slug' => 'pausas-activas', 'nombre' => 'Pausas Activas' ),
+	array( 'slug' => 'bienestar', 'nombre' => 'Bienestar' ),
+	array( 'slug' => 'salud', 'nombre' => 'Salud' ),
+	array( 'slug' => 'deportivo', 'nombre' => 'Deportivo' ),
+	array( 'slug' => 'eventos', 'nombre' => 'Eventos' ),
+	array( 'slug' => 'futbol-interempresarial', 'nombre' => 'Fútbol interempresarial' ),
 );
 
 /*
@@ -53,18 +57,19 @@ $categorias = array(
 global $menuPrincipal;
 
 $menuPrincipal = array(
-	array( 'url' => 'institucional', 'target_blank' => false, 'nombre' => 'Institucional', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
-	array( 'url' => 'oferta-academica', 'target_blank' => false, 'nombre' => 'Oferta académica', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
-	array( 'url' => 'cursos-cortos', 'target_blank' => false, 'nombre' => 'Cursos Cortos', 'classes' => '', 'submenu' => true, 'subItems' => array(
-		array( 'url' => '', 'target_blank' => false, 'nombre' => 'Programación Web', ),
-		array( 'url' => '', 'target_blank' => false, 'nombre' => 'Operador de Pc', ),
-		array( 'url' => '', 'target_blank' => false, 'nombre' => 'Photoshop', ),
+	array( 'url_ext' => false, 'url' => 'inicio', 'target_blank' => false, 'nombre' => 'Inicio', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	array( 'url_ext' => false, 'url' => 'clientes', 'target_blank' => false, 'nombre' => 'Portfolio', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	array( 'url_ext' => false, 'url' => 'acciones', 'target_blank' => false, 'nombre' => 'Acciones', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	array( 'url_ext' => true, 'url' => 'http://www.intervaloproductivo.com.ar/turnos', 'target_blank' => true, 'nombre' => 'Turnos', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	array( 'url_ext' => true, 'url' => 'http://www.intervaloproductivo.com.ar/blog', 'target_blank' => false, 'nombre' => 'Blog', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	array( 'url_ext' => false, 'url' => 'contacto', 'target_blank' => false, 'nombre' => 'Contacto', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	/*
+	EJEMPLO CON SUBMENUS
+	array( 'url_ext' => false, 'url' => 'cursos-cortos', 'target_blank' => false, 'nombre' => 'Cursos Cortos', 'classes' => '', 'submenu' => true, 'subItems' => array(
+		array( 'url_ext' => false, 'url' => '', 'target_blank' => false, 'nombre' => 'Programación Web', ),
+		array( 'url_ext' => false, 'url' => '', 'target_blank' => false, 'nombre' => 'Operador de Pc', ),
+		array( 'url_ext' => false, 'url' => '', 'target_blank' => false, 'nombre' => 'Photoshop', ),
 		),
-	),
-	//array( 'url' => 'inscripcion', 'target_blank' => false, 'nombre' => 'Inscripción', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
-	//array( 'url' => 'orientacion-vocacional', 'target_blank' => false, 'nombre' => 'Orientación Vocacional', 'classes' => '', 'submenu' => true, 'subItems' => array(),  ),
-	array( 'url' => 'novedades', 'target_blank' => false, 'nombre' => 'Novedades', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
-	array( 'url' => 'contacto', 'target_blank' => false, 'nombre' => 'Contacto', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
-	//array( 'url' => '', 'target_blank' => false, 'nombre' => '', 'classes' => '', 'submenu' => false, 'subItems' => array(),  ),
+	),*/
 
 );

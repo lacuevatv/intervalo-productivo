@@ -644,7 +644,7 @@ function showPopupImg () {
 	
 	mysqli_close($connection);
 	if ( $urlPoup == NULL ) {
-		echo MAINSURL . '/assets/images/popupdefault.png';
+		echo MAINSURL . '/images/popupdefault.png';
 	} else {
 		echo UPLOADSURL . '/' . $urlPoup;
 	}

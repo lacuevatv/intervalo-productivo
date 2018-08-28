@@ -50,11 +50,11 @@ if(!defined("SECUREACCESS"))
               <a href="index.php?admin=contacts" role="button">Contactos</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Noticias<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
                   <a href="index.php?admin=editar-noticias" role="button">Agregar nueva</a>
-                  </li>
+                </li>
                 <li>
                   <a href="index.php?admin=noticias" role="button">Ver todas</a>
                 </li>
@@ -66,24 +66,27 @@ if(!defined("SECUREACCESS"))
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrar Página<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li>
+                <!--<li>
                   <a href="index.php?admin=archivos-descargas" role="button">Archivos para descargar</a>
-                </li>
-                <li>
+                </li>-->
+                <!--<li>
                   <a href="index.php?admin=info-adicional" role="button">Info Adicional</a>
-                </li>
-                <li>
+                </li>-->
+                <!--<li>
                   <a href="index.php?admin=galeria-imagenes" role="button">Galerías de imágenes</a>
-                </li>
+                </li>-->
                 <li>
-                  <a href="index.php?admin=promociones" role="button">promociones</a>
+                  <a href="index.php?admin=promociones" role="button">Promociones</a>
                 </li>
                 <li>
                   <a href="index.php?admin=editar-slider&slug=home" role="button">Slider Inicio</a>
                 </li>
                 <li>
-                  <a href="index.php?admin=biblioteca-medios" role="button">Medios</a>
+                  <a href="index.php?admin=clientes" role="button">Clientes</a>
                 </li>
+                <!--<li>
+                  <a href="index.php?admin=biblioteca-medios" role="button">Medios</a>
+                </li>-->
               </ul>
             </li>
           <?php endif; ?>

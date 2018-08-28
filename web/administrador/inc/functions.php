@@ -5,7 +5,7 @@
  * Pagina de funciones
 */
 
-require_once('config.php');
+require_once('config-admin.php');
 
 /*
  * Funciones sin base de datos
