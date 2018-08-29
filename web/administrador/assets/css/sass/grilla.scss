@@ -117,3 +117,21 @@
     padding: 5px 10px; 
   }  
 }
+
+.col-40 {
+  width: 100%;
+  padding: 5px 20px;
+  @media (min-width: $md) {
+    width: 40%; 
+    padding: 5px 10px; 
+  }  
+}
+
+.col-60 {
+  width: 100%;
+  padding: 5px 20px;
+  @media (min-width: $md) {
+    width: 60%; 
+    padding: 5px 10px; 
+  }  
+}
