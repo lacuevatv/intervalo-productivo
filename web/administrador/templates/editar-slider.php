@@ -40,14 +40,15 @@ $item = 1;
 		<ul id="<?php echo $slug; ?>" class="sliders-wrapper">
 			<?php for ($i=0; $i < count($dataSlider); $i++) {
 			 	$row = $dataSlider[$i];
-				$sliderID        = isset($row['slider_id'])? $row['slider_id']:'';
-				$sliderImagen    = isset($row['slider_imagen'])? $row['slider_imagen']:'';
-				$sliderTitulo    = isset($row['slider_titulo'])? $row['slider_titulo']:'';
-				$sliderLink      = isset($row['slider_link'])? $row['slider_link']:'';
-				$sliderTextoLink = isset($row['slider_textoLink'])? $row['slider_textoLink']:'';
-				$sliderTexto     = isset($row['slider_texto'])? $row['slider_texto']:'';
-				$sliderUbicacion = isset($row['slider_ubicacion'])? $row['slider_ubicacion']:'';
-				$sliderOrden     = isset($row['slider_orden'])? $row['slider_orden']:'';
+				$sliderID           = isset($row['slider_id'])? $row['slider_id']:'';
+				$sliderImagen       = isset($row['slider_imagen'])? $row['slider_imagen']:'';
+				$sliderTitulo       = isset($row['slider_titulo'])? $row['slider_titulo']:'';
+				$sliderLink         = isset($row['slider_link'])? $row['slider_link']:'';
+				$sliderTextoLink    = isset($row['slider_textoLink'])? $row['slider_textoLink']:'';
+				$sliderTextoAnimado = isset($row['slider_texto_animacion'])? $row['slider_texto_animacion']:'0';
+				$sliderTexto        = isset($row['slider_texto'])? $row['slider_texto']:'';
+				$sliderUbicacion    = isset($row['slider_ubicacion'])? $row['slider_ubicacion']:'';
+				$sliderOrden        = isset($row['slider_orden'])? $row['slider_orden']:'';
 			?>
 			<li class="item-slider" id="<?php echo $sliderID; ?>">
 				<h3>Item <?php echo $item; ?></h3>
@@ -90,7 +91,12 @@ $item = 1;
 						</div>
 
 						<div class="form-group input-sliders">
-							<label for="slider_texto-<?php echo $item; ?>">Texto slider</label>
+							<label for="slider_texto_animacion-<?php echo $item; ?>">Animación texto:
+							<input type="checkbox" id="slider_texto_animacion-<?php echo $item; ?>" name="slider_texto_animacion-<?php echo $item; ?>" class="checkbox-slider" <?php if ($sliderTextoAnimado == 1 ) { echo 'checked'; } ?>></label>
+						</div>
+
+						<div class="form-group input-sliders">
+							<label for="slider_texto-<?php echo $item; ?>">Animación textos: (Separar con punto)</label>
 							<textarea id="slider_texto-<?php echo $item; ?>" name="slider_texto-<?php echo $item; ?>"><?php echo $sliderTexto; ?></textarea>
 						</div>
 						

@@ -20,16 +20,18 @@ if ( isAjax() ) {
 		$sliderID   = isset( $_POST['sliderId'] ) ? $_POST['sliderId'] : '';
 		$titulo     = isset( $_POST['titulo'] ) ? $_POST['titulo'] : '';
 		$url        = isset( $_POST['url'] ) ? $_POST['url'] : '';
+		$animacion  = isset( $_POST['animacion'] ) ? $_POST['animacion'] : '0';
 		$texto      = isset( $_POST['texto'] ) ? $_POST['texto'] : '';
 		$textoBTN   = isset( $_POST['textoBtn'] ) ? $_POST['textoBtn'] : '';
 		$orden      = isset( $_POST['orden'] ) ? intval($_POST['orden']) : 0;
+
 		$titulo     = filter_var($titulo,FILTER_SANITIZE_STRING); 
 		$texto      = filter_var($texto,FILTER_SANITIZE_STRING); 
 		$textoBTN   = filter_var($textoBTN,FILTER_SANITIZE_STRING); 
 		$orden      = filter_var($orden,FILTER_SANITIZE_NUMBER_INT); 
  		$url        = filter_var($url,FILTER_SANITIZE_URL); 
  		
-		$query      = "UPDATE ".$tabla." SET slider_imagen='".$sliderIMG."', slider_titulo='".$titulo."', slider_link='".$url."', slider_textoLink='".$textoBTN."', slider_texto='".$texto."', slider_orden='".$orden."' WHERE slider_id='".$sliderID."' LIMIT 1";
+		$query      = "UPDATE ".$tabla." SET slider_imagen='".$sliderIMG."', slider_titulo='".$titulo."', slider_link='".$url."', slider_textoLink='".$textoBTN."', slider_texto_animacion='".$animacion."',slider_texto='".$texto."', slider_orden='".$orden."' WHERE slider_id='".$sliderID."' LIMIT 1";
 		$result     = mysqli_query($connection, $query);
    
 		if ($result) {

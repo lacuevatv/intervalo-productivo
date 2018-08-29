@@ -76,14 +76,23 @@ $(document).ready(function (){
 		var item = '#'+sliderId
 		var ID = $(item);
 		var texto = ID.find('textarea').val();
-		var imagen = ID.find('input[type=hidden]').val()
+		var imagen = ID.find('input[type=hidden]').val();
 		var input = $(ID.find('input'));
-		var orden = $(input[1]).val()
-		var titulo = $(input[2]).val()
-		var url = $(input[3]).val()
-		var textoBtn = $(input[4]).val()
+		var orden = $(input[1]).val();
+		var titulo = $(input[2]).val();
+		var url = $(input[3]).val();
+		var textoBtn = $(input[4]).val();
+		var animacion = $(input[5]).prop('checked');
 		var ubicacion = $('.sliders-wrapper').attr('id');
 		var msj = ID.find('.msj-guardar');
+
+		if (animacion == true) {
+			animacion = 1;
+		} else {
+			animacion = 0;
+		}
+
+		
 		if (orden == '') {
 			orden = 0;
 			$(ID.find('input')[4]).val(orden);
@@ -102,7 +111,8 @@ $(document).ready(function (){
 	                sliderImagen: imagen,
 	                titulo: titulo,
 	                url: url,
-	                textoBtn: textoBtn,
+					textoBtn: textoBtn,
+					animacion: animacion,
 	                orden: orden,
 	                ubicacion: ubicacion,
 	                new: 'false',

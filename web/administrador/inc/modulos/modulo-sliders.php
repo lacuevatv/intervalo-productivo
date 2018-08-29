@@ -73,6 +73,7 @@ function showSliderToEdit ( $slug ) {
 					'slider_titulo' => $row['slider_titulo'],
 					'slider_link' => $row['slider_link'],
 					'slider_textoLink' => $row['slider_textoLink'],
+					'slider_texto_animacion' => $row['slider_texto_animacion'],
 					'slider_texto' => $row['slider_texto'],
 					'slider_ubicacion' => $row['slider_ubicacion'],
 					'slider_orden' => $row['slider_orden'],
