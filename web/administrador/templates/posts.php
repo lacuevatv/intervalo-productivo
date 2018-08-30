@@ -1,12 +1,11 @@
 <?php
 /*
- * Noticias recientes
- * Lista las noticias publicadas y con links para verlas, editarlas o publicarlas
+ * Lista los post
  * Since 3.0
  * 
 */
 load_module( 'acciones' );
-$posts = getPosts( 'post', POSTPERPAG, '', 'fecha' );
+$posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 ?>
 <!---------- noticias ---------------->
 <div class="contenido-modulo">
