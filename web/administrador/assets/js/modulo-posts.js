@@ -4,6 +4,9 @@
 
 var currentPage = 1;
 
+/*
+* pagina LOOP
+*/
 $(document).ready(function(){
 
     /*
@@ -88,7 +91,7 @@ $(document).ready(function(){
                 type: 'POST',
                 url: ajaxFunctionDir + '/delete-post.php',
                 data: {
-                    post_url: postToDelete,
+                    post_id: postToDelete,
                 },
                 success: function ( response ) {
                     console.log(response);
@@ -106,5 +109,13 @@ $(document).ready(function(){
     });//click .btn-delete-post
 
 
+
+});//READY
+
+
+/*
+* pagina EDICION
+*/
+$(document).ready(function(){
 
 });//READY
