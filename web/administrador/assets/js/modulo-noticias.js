@@ -183,7 +183,7 @@ $(document).ready(function(){
 	/*
 	* editar la noticia / crear nueva noticia
 	*/
-
+	
 	//coloca la fecha de hoy automaticamente si no hay fecha anterior:
 	function setDate(date){
 	    z=$(date).attr('value');

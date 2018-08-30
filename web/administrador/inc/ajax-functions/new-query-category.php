@@ -6,7 +6,7 @@
  * Carga más post
 */
 require_once('../functions.php');
-require_once('../modulos/modulo-acciones.php');
+load_module( 'posts' );
 if ( isAjax() ) {
     
     $pageActual = isset( $_POST['page'] ) ? intval( $_POST['page'] ) : 2;

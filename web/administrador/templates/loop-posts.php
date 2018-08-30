@@ -15,7 +15,7 @@
                 <?php echo $data['post_titulo']; ?><?php if ($data['post_status'] != 'publicado') {echo ' | ' . $data['post_status'];} ?> | <small><?php echo $data['post_timestamp']; ?></small>
             </h1>
             <p class="links-edicion-noticias">
-                <a href="index.php?admin=editar-acciones&id=<?php echo $data['post_ID']; ?>" title="Editar" class="btn-edit-news">
+                <a href="index.php?admin=editar-post&id=<?php echo $data['post_ID']; ?>" title="Editar" class="btn-edit-news">
                     Editar
                 </a>
                 <!--|DEBERIA CAMBIAR EL URL CUANDO ESTE LISTO <a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] .'/noticias/'. $data['post_url']; ?>" target="_blank" title="Ver">Ver</a>-->

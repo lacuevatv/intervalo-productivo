@@ -49,13 +49,13 @@ function getPosts( $postType, $limit = '', $categoria = '', $orden = '', $status
 //recupera post, por el slug
 function getPostBySlug( $slug ) {
 	$connection = connectDB();
-	$tabla = 'cursos';
+	$tabla = 'posts';
 
 	//queries según parámetros
 	$query  = "SELECT * FROM " .$tabla. " WHERE post_url='".$slug."'";
 	
 	$result = mysqli_query($connection, $query);
-	$post = mysqli_fetch_array($result);
+	$post = $result->fetch_array();
 	
 	return $post;
 }
@@ -63,13 +63,13 @@ function getPostBySlug( $slug ) {
 //recupera post, por el id
 function getPostById( $id ) {
 	$connection = connectDB();
-	$tabla = 'cursos';
+	$tabla = 'posts';
 
 	//queries según parámetros
 	$query  = "SELECT * FROM " .$tabla. " WHERE post_ID='".$id."'";
 	
 	$result = mysqli_query($connection, $query);
-	$post = mysqli_fetch_array($result);
+	$post = $result->fetch_array();
 	
 	return $post;
 }

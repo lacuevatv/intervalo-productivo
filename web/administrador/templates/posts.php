@@ -4,7 +4,7 @@
  * Since 3.0
  * 
 */
-load_module( 'acciones' );
+load_module( 'posts' );
 $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 ?>
 <!---------- noticias ---------------->

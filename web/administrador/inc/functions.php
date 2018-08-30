@@ -23,7 +23,7 @@ function getTemplate ($name, $data = array() ) {
 
 //carga las funciones del modulo
 function load_module( $nombre ) {
-	include MODULOSDIR . '/modulo-'. $nombre. '.php';
+	require_once(MODULOSDIR . '/modulo-'. $nombre. '.php');
 }
 
 //funcion renombrar archivo para que no se sobreescriba
@@ -65,7 +65,7 @@ function get_footer_scripts ($modulo) { ?>
 		case 'posts':
 		case 'promos':
 		case 'categorias':
-		case 'editar-posts':
+		case 'editar-post':
 		case 'editar-promos':
 		case 'editar-categorias': ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
