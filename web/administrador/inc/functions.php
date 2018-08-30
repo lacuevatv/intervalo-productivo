@@ -61,6 +61,18 @@ function get_footer_scripts ($modulo) { ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			
 			<?php break;
+
+		case 'posts':
+		case 'promos':
+		case 'categorias':
+		case 'editar-posts':
+		case 'editar-promos':
+		case 'editar-categorias': ?>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-posts.js"></script>
+			
+			<?php break;
 		
 		case 'galeria-imagenes': ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>

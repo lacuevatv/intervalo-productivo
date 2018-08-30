@@ -7,7 +7,7 @@
         <div class="modulo-wrapper">
           <h2>Acciones</h2>
           <p>Administrar las acciones, promos y categorias.</p>
-          <p><a class="btn btn-primary" href="index.php?admin=noticias" role="button">Ver lista</a></p>
+          <p><a class="btn btn-primary" href="index.php?admin=posts" role="button">Ver lista</a></p>
         </div>
       </section><!-- //modulo -->
     </div><!-- //columna -->
@@ -38,9 +38,9 @@
       <!-- modulo -->
       <section>
         <div class="modulo-wrapper">
-          <h2>Promociones</h2>
-          <p>Activar o desactivar promociones.</p>
-          <p><a class="btn btn-primary" href="index.php?admin=promociones" role="button">Modificar promociones</a></p>
+          <h2>Popups</h2>
+          <p>Activar o desactivar popups.</p>
+          <p><a class="btn btn-primary" href="index.php?admin=promociones" role="button">Modificar popups</a></p>
         </div>
       </section><!-- //modulo -->
     </div><!-- //columna -->

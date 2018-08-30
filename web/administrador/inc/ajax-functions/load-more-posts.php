@@ -13,9 +13,10 @@ if ( isAjax() ) {
     $categoria = isset( $_POST['categoria'] ) ? $_POST['categoria'] : '';
     $postType = 'post';
 
-    $limit = POSTPERPAG;
+    $limit = ( ($pageActual )*POSTPERPAG).", ".POSTPERPAG;
 
     $posts = getPosts( $postType, $limit, $categoria, 'fecha', 'all' );
+
         
     if ( $posts != null ) {
         for ($i=0; $i < count($posts); $i++) { 
