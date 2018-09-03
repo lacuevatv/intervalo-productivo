@@ -24,7 +24,7 @@ function getPosts( $postType, $limit = '', $categoria = '', $orden = '', $status
         $query  .= " ORDER by post_timestamp DESC";
     }
     if ( $orden == 'orden' ) {
-        $query  .= " ORDER by orden ASC";
+        $query  .= " ORDER by post_orden ASC";
     }
 
     //limite

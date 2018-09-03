@@ -508,6 +508,10 @@ $(document).ready(function(){
         }
         formData.append('acordion', JSON.stringify(acordion) );
         
+        if ( $('input[name="post_destacado"]').prop('checked') ) {
+            formData.append('post_destacado', '1');
+        }
+
         
         //envia el formulario
 		$.ajax({

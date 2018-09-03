@@ -764,6 +764,14 @@ ul.dropdown-menu li {
   vertical-align: middle;
 }
 
+.form-group-checkbox input {
+  display: block;
+  text-align: left;
+  margin: 0;
+  width: 40px;
+  margin-top: 5px;
+}
+
 .error-tag {
   color: #d9534f;
 }

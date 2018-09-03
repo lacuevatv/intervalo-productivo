@@ -1,16 +1,16 @@
 <?php
 /*
- * Noticias recientes
- * Lista las noticias publicadas y con links para verlas, editarlas o publicarlas
+ * Lista los post
  * Since 3.0
  * 
 */
-load_module( 'noticias' );
+load_module( 'posts' );
+$posts = getPosts( 'promo', POSTPERPAG, '', 'fecha', 'all' );
 ?>
 <!---------- noticias ---------------->
 <div class="contenido-modulo">
 	<h1 class="titulo-modulo">
-		Ver noticias
+		Ver Promos
 	</h1>
 	<div class="container">
 		<div class="row">
@@ -19,13 +19,16 @@ load_module( 'noticias' );
 					<label>Filtrar por categoría</label>
 					<select name="post_categoria" id="post_categoria">
 						<option value="todas">Todas</option>
-					<?php 
-						global $categorias;
-						
-						for ($i=0; $i < count($categorias); $i++) { 
-							echo '<option value="'.$categorias[$i]['slug'].'">'.$categorias[$i]['nombre'].'</option>';
-						}
-					?>
+						<?php 
+							$categorias = getPosts( 'categorias' );
+							if ( $categorias!=null ) :
+
+								for ($i=0; $i < count($categorias); $i++) { 
+									echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
+								}
+
+							endif;
+						?>
 					</select>
 				</div>
 			</div>
@@ -33,7 +36,16 @@ load_module( 'noticias' );
 		<div class="row">
 			<div class="col">
 			<ul class="loop-noticias-backend">
-        		<?php listaNoticias(10, 'all', true, 'none', true); ?>
+                
+            <?php if ($posts != null) :
+
+				for ($i=0; $i < count($posts); $i++) { 
+					getTemplate( 'loop-posts', $posts[$i] );    
+					
+				}
+
+            endif;
+            ?>
         		
         	</ul>
         	</div><!-- // col -->
@@ -50,7 +62,7 @@ load_module( 'noticias' );
 <!-- botones del modulo -->
 <footer class="footer-modulo container">
     <a type="button" href="index.php" class="btn">Volver al inicio</a>
-    <a type="button" href="index.php?admin=editar-noticias" class="btn">Agregar nueva</a>
+    <a type="button" href="index.php?admin=editar-promo-acciones" class="btn">Agregar nueva</a>
 </footer>
 
 <!---------- fin noticias ---------------->

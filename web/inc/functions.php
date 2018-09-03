@@ -416,7 +416,7 @@ function closeDataBase( $connection ){
 
 
 //busca datos para loop de noticias por categoria y los devuelve en una variables:
-function getPosts( $categoria = 'none', $number = -1, $exclude = 'none', $status = 'publicado', $offset = 0 ) {
+function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'none', $status = 'publicado', $offset = 0 ) {
 	$connection = connectDB();
 	$fecha_actual = date("Y-m-d");
 	$tabla = 'posts';
@@ -426,7 +426,8 @@ function getPosts( $categoria = 'none', $number = -1, $exclude = 'none', $status
 	}
 
 	$query  = "SELECT * FROM " .$tabla;
-	$query .= " WHERE post_status='";
+	$query .= " WHERE post_type = '".$postType."'";
+	$query .= " post_status='";
 	$query .= $status . "'";
 	if ( $categoria != 'none' ) {
 		$query .= " AND post_categoria = '".$categoria."'";

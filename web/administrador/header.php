@@ -53,10 +53,16 @@ if(!defined("SECUREACCESS"))
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="index.php?admin=editar-post" role="button">Agregar nueva</a>
+                  <a href="index.php?admin=editar-acciones" role="button">Agregar nueva acción</a>
                 </li>
                 <li>
-                  <a href="index.php?admin=posts" role="button">Ver lista</a>
+                  <a href="index.php?admin=acciones" role="button">Acciones</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=promos" role="button">Promociones</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=categorias" role="button">Categorias</a>
                 </li>
               </ul>
             </li>

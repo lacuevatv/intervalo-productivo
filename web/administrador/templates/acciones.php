@@ -5,12 +5,12 @@
  * 
 */
 load_module( 'posts' );
-$posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
+$posts = getPosts( 'acciones', POSTPERPAG, '', 'fecha', 'all' );
 ?>
 <!---------- noticias ---------------->
 <div class="contenido-modulo">
 	<h1 class="titulo-modulo">
-		Ver post
+		Ver Accciones
 	</h1>
 	<div class="container">
 		<div class="row">
@@ -20,14 +20,14 @@ $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 					<select name="post_categoria" id="post_categoria">
 						<option value="todas">Todas</option>
 						<?php 
-						$categorias = getPosts( 'categorias' );
-						if ( $categorias!=null ) :
+							$categorias = getPosts( 'categorias' );
+							if ( $categorias!=null ) :
 
-							for ($i=0; $i < count($categorias); $i++) { 
-								echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
-							}
+								for ($i=0; $i < count($categorias); $i++) { 
+									echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
+								}
 
-						endif;
+							endif;
 						?>
 					</select>
 				</div>
@@ -40,6 +40,7 @@ $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
             <?php if ($posts != null) :
 
 				for ($i=0; $i < count($posts); $i++) { 
+                    
 					getTemplate( 'loop-posts', $posts[$i] );    
 					
 				}

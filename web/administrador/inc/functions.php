@@ -54,19 +54,14 @@ function get_footer_scripts ($modulo) { ?>
 	<!------- scripts modulos ------>
 	<?php 
 	switch ( $modulo ) {
-		case 'noticias':
-		case 'editar-noticias': ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-noticias.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			
-			<?php break;
 
 		case 'posts':
 		case 'promos':
 		case 'categorias':
+		case 'acciones':
 		case 'editar-post':
 		case 'editar-promos':
+		case 'editar-acciones':
 		case 'editar-categorias': ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>

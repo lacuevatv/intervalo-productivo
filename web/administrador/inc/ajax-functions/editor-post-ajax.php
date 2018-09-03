@@ -7,7 +7,7 @@
 session_start();
 require_once('../functions.php');
 if ( isAjax() ) {
-    
+    print_r($_POST);
     //se toman los datos para variables
 	$connection          = connectDB();
 	$tabla               = 'posts';
@@ -29,6 +29,7 @@ if ( isAjax() ) {
     $imgGaleria          = isset( $_POST['imgGaleria'] ) ? $_POST['imgGaleria'] : '';
     $tabs                = isset( $_POST['tabs'] ) ? json_decode($_POST['tabs']) : '';
     $acordion            = isset( $_POST['acordion'] ) ? json_decode($_POST['acordion']) : '';
+    $destacado           = isset( $_POST['post_destacado'] ) ? $_POST['post_destacado'] : '0';
     $orden               = isset( $_POST['post_orden'] ) ? $_POST['post_orden'] : '0';
     $postHead            = isset( $_POST['post_head'] ) ? $_POST['post_head'] : '';
     $fechaPost           = isset( $_POST['post_date'] ) ? $_POST['post_date'] : null;
@@ -94,13 +95,13 @@ if ( isAjax() ) {
 		}
 
         //sino se guarda
-        $query = "INSERT INTO $tabla (post_autor,post_pre_titulo,post_titulo,post_url,post_contenido,post_resumen,post_mini_texto,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_tabs,post_acordion,post_head,post_status,post_orden,post_type";
+        $query = "INSERT INTO $tabla (post_autor,post_pre_titulo,post_titulo,post_url,post_contenido,post_resumen,post_mini_texto,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_tabs,post_acordion,post_head,post_status,post_destacado,post_orden,post_type";
         
         if ( $fechaPost != null ) {
             $query .= ",post_timestamp";
         }
 
-        $query .= ") VALUES ('$user', '$postPreTitulo', '$postTitulo', '$postUrl', '$postContenido', '$postResumen','$postMiniTexto', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria','$tabs','$acordion', '$postHead','$postStatus', '$orden','$postType'";
+        $query .= ") VALUES ('$user', '$postPreTitulo', '$postTitulo', '$postUrl', '$postContenido', '$postResumen','$postMiniTexto', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria','$tabs','$acordion', '$postHead','$postStatus', '$destacado', '$orden','$postType'";
 
         if ( $fechaPost != null ) {
             $query .= ", '".$fechaPost."'";
@@ -120,7 +121,7 @@ if ( isAjax() ) {
 	} //es viejo post
 		else {
 
-        $query = "UPDATE ".$tabla." SET post_autor='".$user."',post_pre_titulo='".$postPreTitulo."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_mini_texto='".$postMiniTexto."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."',post_tabs='".$tabs."',post_acordion='".$acordion."',post_head='".$postHead."', post_status='".$postStatus."',post_orden='".$orden."',post_type='".$postType."'";
+        $query = "UPDATE ".$tabla." SET post_autor='".$user."',post_pre_titulo='".$postPreTitulo."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_mini_texto='".$postMiniTexto."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."',post_tabs='".$tabs."',post_acordion='".$acordion."',post_head='".$postHead."', post_status='".$postStatus."', post_destacado='".$destacado."',post_orden='".$orden."',post_type='".$postType."'";
 
         if ( $fechaPost != null ) {
             $query .= ",post_timestamp='".$fechaPost."'";

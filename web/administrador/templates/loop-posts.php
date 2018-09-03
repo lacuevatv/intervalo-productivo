@@ -15,7 +15,16 @@
                 <?php echo $data['post_titulo']; ?><?php if ($data['post_status'] != 'publicado') {echo ' | ' . $data['post_status'];} ?> | <small><?php echo $data['post_timestamp']; ?></small>
             </h1>
             <p class="links-edicion-noticias">
-                <a href="index.php?admin=editar-post&id=<?php echo $data['post_ID']; ?>" title="Editar" class="btn-edit-news">
+                <?php 
+                if ( $data['post_type'] == 'categorias' ) {
+                    $url = 'index.php?admin=editar-categorias&id=' . $data['post_ID'];
+                } elseif ( $data['post_type'] == 'promos' ) {
+                    $url = 'index.php?admin=editar-promo-acciones&id=' . $data['post_ID'];
+                } else {
+                    $url = 'index.php?admin=editar-acciones&id=' . $data['post_ID'];
+                }
+                ?>
+                <a href="<?php echo $url; ?>" title="Editar" class="btn-edit-news">
                     Editar
                 </a>
                 <!--|DEBERIA CAMBIAR EL URL CUANDO ESTE LISTO <a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] .'/noticias/'. $data['post_url']; ?>" target="_blank" title="Ver">Ver</a>-->

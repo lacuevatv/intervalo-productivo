@@ -6,8 +6,30 @@
       <section>
         <div class="modulo-wrapper">
           <h2>Acciones</h2>
-          <p>Administrar las acciones, promos y categorias.</p>
-          <p><a class="btn btn-primary" href="index.php?admin=posts" role="button">Ver lista</a></p>
+          <p>Administrar las acciones.</p>
+          <p><a class="btn btn-primary" href="index.php?admin=acciones" role="button">Ver lista</a></p>
+        </div>
+      </section><!-- //modulo -->
+    </div><!-- //columna -->
+
+    <div class="col-30">
+      <!-- modulo -->
+      <section>
+        <div class="modulo-wrapper">
+          <h2>Promos</h2>
+          <p>Administrar las promos del menu.</p>
+          <p><a class="btn btn-primary" href="index.php?admin=promos" role="button">Ver lista</a></p>
+        </div>
+      </section><!-- //modulo -->
+    </div><!-- //columna -->
+
+    <div class="col-30">
+      <!-- modulo -->
+      <section>
+        <div class="modulo-wrapper">
+          <h2>Categorias</h2>
+          <p>Administrar las categorias.</p>
+          <p><a class="btn btn-primary" href="index.php?admin=categorias" role="button">Ver lista</a></p>
         </div>
       </section><!-- //modulo -->
     </div><!-- //columna -->
