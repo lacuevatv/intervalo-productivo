@@ -76,7 +76,7 @@ if(!defined("SECUREACCESS"))
                   <a href="index.php?admin=galeria-imagenes" role="button">Galerías de imágenes</a>
                 </li>-->
                 <li>
-                  <a href="index.php?admin=promociones" role="button">Promociones</a>
+                  <a href="index.php?admin=promociones" role="button">Popups</a>
                 </li>
                 <li>
                   <a href="index.php?admin=editar-slider&slug=home" role="button">Slider Inicio</a>

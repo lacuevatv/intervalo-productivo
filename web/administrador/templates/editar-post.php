@@ -31,6 +31,7 @@ if ( $postId != null ) {
 	<div class="container">
 		<form method="POST" id="editar-post-form" name="editar-post-form">		
 		<input type="hidden" name="post_ID" value="<?php echo ($post) ? $post['post_ID'] : 'new'; ?>">
+		<input type="hidden" name="post_type" value="post">
 			<div class="error-msj-wrapper">
 				<ul class="error-msj-list">
 					
@@ -38,11 +39,19 @@ if ( $postId != null ) {
 			</div>
 			
 			<div class="row">
-				<div class="col-70">
+				<div class="col-40">
 	<!------ TITULO DE LA NOTICIA ---------->
 					<div class="form-group">
 						<label for="post_title" class="larger-label">Título </label>
 						<input id="post_title" name="post_title" class="larger-input" value="<?php echo ($post) ? $post['post_titulo'] : ''; ?>">
+					</div>	
+				</div><!-- // col -->
+
+				<div class="col-30">
+	<!------ PRE TITULO DE LA NOTICIA ---------->
+					<div class="form-group">
+						<label for="post_pre_titulo">Pre Título </label>
+						<input id="post_pre_titulo" name="post_pre_titulo" class="larger-input" value="<?php echo ($post) ? $post['post_pre_titulo'] : ''; ?>">
 					</div>	
 				</div><!-- // col -->
 	<!------ CATEGORIAS DE LA NOTICIA ---------->
@@ -68,11 +77,18 @@ if ( $postId != null ) {
 
 			
 			<div class="row">
-				<div class="col-50">
+				<div class="col-30">
 	<!------ PERSONALIZAR URL DE LA NOTICIA ---------->
 					<div class="form-group">
 						<label for="post_url">Personalizar Url </label>
 						<input id="post_url" name="post_url" value="<?php echo ($post) ? $post['post_url'] : ''; ?>">
+					</div>
+				</div><!-- // col -->
+	<!------ ORDEN ---------->
+			<div class="col-20">
+					<div class="form-group">
+						<label for="post_orden">Ordenar </label>
+						<input type="number" id="post_orden" name="post_orden" value="<?php echo ($post) ? $post['post_orden'] : '0'; ?>">
 					</div>
 				</div><!-- // col -->
 	<!------ PUBLICAR LA NOTICIA ---------->	
@@ -96,15 +112,23 @@ if ( $postId != null ) {
 			</div><!-- // row -->
 
 			<div class="row">	
-				<div class="col-70">
+				<div class="col-30">
 	<!------ RESUMEN ---------->
 					<div class="form-group">
 						<label for="post_resumen" class="larger-label">Resumen:</label>
 						<textarea id="post_resumen" name="post_resumen"><?php echo ($post) ? $post['post_resumen'] : ''; ?></textarea>
 					</div>			
 				</div><!-- // col -->
-
+				
 				<div class="col-30">
+	<!------ MINI TEXTO ---------->
+					<div class="form-group">
+						<label for="post_mini_texto" class="larger-label">Mini Texto:</label>
+						<textarea id="post_mini_texto" name="post_mini_texto"><?php echo ($post) ? $post['post_mini_texto'] : ''; ?></textarea>
+					</div>			
+				</div><!-- // col -->
+
+				<div class="col-40">
 	<!------ IMAGEN DESTACADA ---------->
 					<div id="imagen_destacada_wrapper" class="form-group">
 						<label for="post_imagen" class="larger-label">Imagen Destacada</label>
@@ -127,20 +151,103 @@ if ( $postId != null ) {
 				
 			</div><!-- // row -->
 
-	<!------ CONTENIDO  ---------->
 			<div class="row">	
 				<div class="col">
-					<div class="form-group">
-						<label for="post_contenido" class="larger-label">Contenido</label>
-						<textarea class="editor-enriquecido" name="post_contenido"><?php echo ($post) ? $post['post_contenido'] : ''; ?></textarea>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">	
-				<div class="col">
-	<!------ OTROS :  ACORDEON  ---------->
+<!------ OTROS :  ACORDEON  ---------->
 					<div id="accordion-post">
+
+	<!------ TABS  ---------->
+						<h3>Tabs</h3>
+						<div>
+							<button type="button" id="agregar_tab" class="btn btn-default">
+								Agregar nueva
+							</button>
+							<p>
+								Tabs generales, con título a la izquierda y contenido a la derecha. Para moverlas, arrástrelas a gusto.
+							</p>
+							<ul class="tabs-wrapper">
+
+							<?php 
+								if ( $post['post_tabs'] != '' ) {
+									$tabs = unserialize($post['post_tabs']);
+									foreach ($tabs as $tab) { ?>
+
+										<li class="tab-item row">
+											<div class="col-40">
+												<div class="form-group">
+													<label for="titulo-tab">Título:</label>
+													<input type="text" name="titulo-tab" value="<?php echo $tab->titulo; ?>">
+												</div>
+											</div>
+											<div class="col-60">
+												<div class="form-group">
+													<label for="contenido-tab">Contenido:</label>
+													<textarea name="contenido-tab" class="mini-editor-enriquecido"><?php echo $tab->contenido; ?></textarea>
+												</div>
+												
+											</div>
+											<button class="del-tab-acordion">
+												<img src="<?php echo URLADMINISTRADOR; ?>/assets/images/delbtn.png">
+											</button>
+										</li>
+
+									<?php }
+								} ?>
+
+							</ul>
+						</div>
+	<!------ ACORDION  ---------->
+						<h3>Mini acordion</h3>
+						<div>
+							<button type="button" id="agregar_acordion" class="btn btn-default">
+								Agregar nuevo
+							</button>
+							<p>
+								Acordión ubicado debajo de las tabs anteriores
+							</p>
+							<ul class="acordion-wrapper">
+
+								<?php 
+								if ( $post['post_acordion'] != '' ) {
+									$acordions = unserialize($post['post_acordion']);
+									foreach ($acordions as $acordion) { ?>
+
+										<li class="tab-item row">
+											<div class="col-40">
+												<div class="form-group">
+													<label for="titulo-tab">Título:</label>
+													<input type="text" name="titulo-acordion" value="<?php echo $acordion->titulo; ?>">
+												</div>
+											</div>
+											<div class="col-60">
+												<div class="form-group">
+													<label for="contenido-tab">Contenido:</label>
+													<textarea name="contenido-acordion" class="mini-editor-enriquecido"><?php echo $acordion->contenido; ?></textarea>
+												</div>
+											</div>
+											<button class="del-tab-acordion">
+												<img src="<?php echo URLADMINISTRADOR; ?>/assets/images/delbtn.png">
+											</button>
+										</li>
+
+									<?php }
+								} ?>
+							</ul>
+						</div>
+	<!------ CONTENIDO  ---------->
+						<h3>Contenido</h3>
+						<div class="form-group">
+							<label for="post_contenido" class="larger-label">En el caso de no tener tabs, se puede incluir un parrafo simple</label>
+							<textarea class="editor-enriquecido" name="post_contenido"><?php echo ($post) ? $post['post_contenido'] : ''; ?></textarea>
+						</div>
+	<!------ HEAD ---------->
+						<h3>Head</h3>
+						<div>
+							<div class="form-group">
+								<label for="post_contenido" class="larger-label">Etiqueta para incluir html en el head</label>
+								<textarea name="post_head"><?php echo ($post) ? $post['post_head'] : ''; ?></textarea>
+							</div>
+						</div>
 	<!------ VIDEO DESTACADO ---------->
 						<h3>Video destacado</h3>
 						<div>
@@ -207,7 +314,6 @@ if ( $postId != null ) {
 							?>
 							</ul>
 						</div>
-						<!------ LINK EXTERNO ---------->
 						
 				   	</div><!-- //#accordion -->
 			   	</div><!-- // col -->
@@ -230,5 +336,6 @@ if ( $postId != null ) {
 <!-- botones del modulo -->
 <footer class="footer-modulo container">
     <a type="button" href="index.php" class="btn">Volver al inicio</a>
-    <a type="button" href="index.php?admin=acciones" class="btn">Volver a lista</a>
+    <a type="button" href="index.php?admin=posts" class="btn">Volver a lista</a>
+	<a type="button" href="index.php?admin=editar-post" class="btn">Agregar nuevo</a>
 </footer>

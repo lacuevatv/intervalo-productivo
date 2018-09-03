@@ -129,43 +129,93 @@ $(document).ready(function(){
 
     /*
 	 Editor enriquecido by tinyMCE
-	*/
-	tinyMCE.init({
-		selector: '.editor-enriquecido',
-		toolbar1: 'bold, italic, underline, strikethrough, alignleft, aligncenter, alignright, alignjustify, bullist, numlist, undo, redo, link, image, media',
-		toolbar2: 'formatselect, cut, copy, paste, blockquote, forecolor backcolor, removeformat, code',
-		menubar: false,
-		height: 200,
-		plugins: [
-		  'code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-		  'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-		  'save table contextmenu directionality emoticons template paste textcolor colorpicker media',
-		],
-		branding: false,
-		media_live_embeds: true,
-		language: 'es',
-		language_url: 'assets/lib/tinymce/langs/es.js',
-		//mantiene sincronizado los cambios del editor con el textarea hidden
-		setup: function (editor) {
-	        editor.on('change', function () {
-	            editor.save();
-	        });
-	    },
-	    file_browser_callback : 
-		function(field_name, url, type, win){
-		var imagebrowser = templatesDir + '/media-browser-tinymce.php';
-		tinymce.activeEditor.windowManager.open({
-		title : "Insertar Medio",
-		width : 780,
-		height : 600,
-		url : imagebrowser
-		}, {
-		window : win,
-		input : field_name
-		});
-		return false;
-		}
-	});    
+    */
+    iniciarEditorEnriquecido( '.editor-enriquecido' );
+
+    function iniciarEditorEnriquecido(clase) {
+        tinyMCE.init({
+            selector: clase,
+            toolbar1: 'bold, italic, underline, strikethrough, alignleft, aligncenter, alignright, alignjustify, bullist, numlist, undo, redo, link, image, media',
+            toolbar2: 'formatselect, cut, copy, paste, blockquote, forecolor backcolor, removeformat, code',
+            menubar: false,
+            height: 200,
+            plugins: [
+              'code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+              'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+              'save table contextmenu directionality emoticons template paste textcolor colorpicker media',
+            ],
+            branding: false,
+            media_live_embeds: true,
+            language: 'es',
+            language_url: 'assets/lib/tinymce/langs/es.js',
+            //mantiene sincronizado los cambios del editor con el textarea hidden
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            },
+            file_browser_callback : 
+            function(field_name, url, type, win){
+            var imagebrowser = templatesDir + '/media-browser-tinymce.php';
+            tinymce.activeEditor.windowManager.open({
+            title : "Insertar Medio",
+            width : 780,
+            height : 600,
+            url : imagebrowser
+            }, {
+            window : win,
+            input : field_name
+            });
+            return false;
+            }
+        });    
+    }
+	
+    
+    /*
+	 Editor enriquecido by tinyMCE
+    */
+    iniciarMiniEditorEnriquecido( '.mini-editor-enriquecido' );
+
+    function iniciarMiniEditorEnriquecido(clase) {
+        tinyMCE.init({
+            selector: clase,
+            toolbar1: 'bold, italic, underline, strikethrough, alignleft, aligncenter, alignright, alignjustify, bullist, numlist, undo, redo, link, image, media',
+            toolbar2: 'formatselect, cut, copy, paste, blockquote, forecolor backcolor, removeformat, code',
+            menubar: false,
+            height: 100,
+            plugins: [
+              'code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+              'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+              'save table contextmenu directionality emoticons template paste textcolor colorpicker media',
+            ],
+            branding: false,
+            media_live_embeds: true,
+            language: 'es',
+            language_url: 'assets/lib/tinymce/langs/es.js',
+            //mantiene sincronizado los cambios del editor con el textarea hidden
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            },
+            file_browser_callback : 
+            function(field_name, url, type, win){
+            var imagebrowser = templatesDir + '/media-browser-tinymce.php';
+            tinymce.activeEditor.windowManager.open({
+            title : "Insertar Medio",
+            width : 780,
+            height : 600,
+            url : imagebrowser
+            }, {
+            window : win,
+            input : field_name
+            });
+            return false;
+            }
+        }); 
+    }
+	   
 
 
     //esta inscripción sirve solo para arreglar un defecto de integracio del editor tinymce
@@ -357,4 +407,151 @@ $(document).ready(function(){
         $( "#dialog" ).dialog( 'open' ).load( templatesDir + '/media-browser.php' );
 	});//clic agregar imagenes galeria
 
+    /*
+    * TABS Y ACORDION
+    */
+    //QUITAR TAB
+    $(document).on('click', '.del-tab-acordion', function(e){
+        e.preventDefault();
+        $(this).closest('li').remove();
+    });
+
+    //botones agregar tab
+    $(document).on('click', '#agregar_tab', function(e){
+        e.preventDefault();
+        var contenedor = $('.tabs-wrapper');
+        var html = '<li class="tab-item row"><div class="col-40"><div class="form-group"><label for="titulo-tab">Título:</label><input type="text" name="titulo-acordion"></div></div><div class="col-60"><div class="form-group"><label for="contenido-tab">Contenido:</label><textarea name="contenido-acordion" class="mini-editor-enriquecido"></textarea></div></div><button class="del-tab-acordion"><img src="'+administradorUrl+'/assets/images/delbtn.png"></button></li>';
+
+        contenedor.append( $(html) );
+
+        tinymce.remove('.mini-editor-enriquecido');
+
+        iniciarMiniEditorEnriquecido('.mini-editor-enriquecido');
+    });
+    
+    //botones agregar acordion
+    $(document).on('click', '#agregar_acordion', function(e){
+        e.preventDefault();
+        var contenedor = $('.acordion-wrapper');
+        var html = '<li class="tab-item row"><div class="col-40"><div class="form-group"><label for="titulo-tab">Título:</label><input type="text" name="titulo-acordion"></div></div><div class="col-60"><div class="form-group"><label for="contenido-tab">Contenido:</label><textarea name="contenido-acordion" class="mini-editor-enriquecido"></textarea></div></div><button class="del-tab-acordion"><img src="'+administradorUrl+'/assets/images/delbtn.png"></button></li>';
+        
+        contenedor.append( $(html) );
+
+        //tinymce.EditorManager.execCommand('mceRemoveEditor',true, '.mini-editor-enriquecido');
+        //tinymce.EditorManager.execCommand('mceAddEditor',true, '.mini-editor-enriquecido');
+        tinymce.remove('.mini-editor-enriquecido');
+
+        iniciarMiniEditorEnriquecido('.mini-editor-enriquecido');
+    });
+
+
+    //permite ordenarlas mediante drag and drop
+    $( ".tabs-wrapper" ).sortable({});
+    $( ".acordion-wrapper" ).sortable({});
+    
+    
+    /*
+     * SUBMIT FORMULARIO
+    */
+    $(document).on('submit', '#editar-post-form', function(e){
+        e.preventDefault();
+        var error = $('.error-msj-list');
+        
+        //primero revalidamos que el titulo y el url esten,sino estan hay un error
+		//el título no puede estar vacío
+		if ( $('#post_title').val() == '' ) {
+			error.append( '<li class="error-msj-list-item-danger">El título no puede estar vacío</li>');
+			return;
+		}
+		//la url no puede estar vacía
+		if ( $('#post_url').val() == '' ) {
+			error.append( '<li class="error-msj-list-item-danger">La URL no puede estar vacía</li>');
+			return;
+        }
+
+        //datos del formulario:
+        var formulario = $( this );
+		var formData = new FormData( formulario[0] );
+        
+        //galería de imágenes
+		var galeriaImagenes = [];
+		//procesa los datos de la galeria de imagenes y su orden actual
+		var imagenes = $('.galeria-imagenes-wrapper').find('input');
+		for (var i = 0; i < imagenes.length; i++) {
+			galeriaImagenes.push( $(imagenes[i]).val() );
+        }
+        formData.append('imgGaleria', galeriaImagenes);
+        
+        //tabs:
+        var tabs = [];
+        var tabsItems = $('.tabs-wrapper .tab-item');
+        for (var i = 0; i < tabsItems.length; i++) {
+            var item = {
+                titulo: $(tabsItems[i]).find('input').val(),
+                contenido: $(tabsItems[i]).find('textarea').val(),
+            }
+
+			tabs.push( item );
+        }
+        formData.append('tabs', JSON.stringify(tabs) );
+
+        //acordion:
+        var acordion = [];
+        var acordionItems = $('.acordion-wrapper .tab-item');
+        for (var i = 0; i < acordionItems.length; i++) {
+            var item = {
+                titulo: $(acordionItems[i]).find('input').val(),
+                contenido: $(acordionItems[i]).find('textarea').val(),
+            }
+
+			acordion.push( item );
+        }
+        formData.append('acordion', JSON.stringify(acordion) );
+        
+        
+        //envia el formulario
+		$.ajax({
+			type: 'POST',
+			url: ajaxFunctionDir + '/editor-post-ajax.php',
+			data: formData,
+			cache: false,
+		    contentType: false,
+		    processData: false,
+            //funcion antes de enviar
+            beforeSend: function() {
+            	console.log('enviando formulario');
+            },
+			success: function ( response ) {
+				console.log(response);
+				switch(response) {
+
+					case 'error-url':
+						error.append( '<li class="error-msj-list-item-danger">Ya existe una entrada con ese URL</li>');
+                    break;
+
+					case 'updated':
+						error.append( '<li class="error-msj-list-item-danger">Los Cambios fueron guardados</li>');
+						scrollHaciaArriba();
+                    break;
+
+					case 'error':
+						error.append( '<li class="error-msj-list-item-danger">Hubo un pequeño error</li>');
+                    break;
+                        
+                    //devuelve id para reload
+                    default :
+						var url = window.location.href;
+						url += '&id=';
+						url += response;
+						window.location.href = url;
+					break;
+				}
+			},
+			error: function ( error ) {
+				console.log(error);
+			},
+        });//cierre ajax
+        
+    });//submit
+    
 });//READY

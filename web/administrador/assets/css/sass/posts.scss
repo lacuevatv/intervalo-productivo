@@ -282,3 +282,23 @@
   align-items: center;
   justify-content: center;
 }
+
+.tab-item {
+  position: relative;
+  border:1px solid rgba(0,0,0,0.3);
+  margin-top: 30px;
+}
+
+.del-tab-acordion {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+
+  img {
+    width: 100%;
+  }
+}
