@@ -16,6 +16,7 @@ $posts = getPosts( 'acciones', POSTPERPAG, '', 'fecha', 'all' );
 		<div class="row">
 			<div class="col">
 				<div class="nav-noticias-interno">
+					<input type="hidden" name="post_type" id="post_type" value="acciones">
 					<label>Filtrar por categoría</label>
 					<select name="post_categoria" id="post_categoria">
 						<option value="todas">Todas</option>

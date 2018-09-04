@@ -103,7 +103,11 @@ if ( $postId != null ) {
 							if ( $categorias!=null ) :
 
 								for ($i=0; $i < count($categorias); $i++) { 
-									echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
+									$selected = '';
+									if ( $post['post_categoria'] == $categorias[$i]['post_ID'] ) {
+										$selected = ' selected';
+									}
+									echo '<option value="'.$categorias[$i]['post_ID'].'"'.$selected.'>'.$categorias[$i]['post_titulo'].'</option>';
 								}
 
 							endif;
@@ -117,7 +121,7 @@ if ( $postId != null ) {
 						<label for="post_destacado">
 							Destacado
 						</label>
-						<input name="post_destacado" type="checkbox">
+						<input name="post_destacado" type="checkbox"<?php if ($post && $post['post_destacado'] == 1) { echo 'checked';}?>>
 					</div>
 				</div><!-- // col -->
 			</div><!-- // row -->

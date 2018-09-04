@@ -14,6 +14,11 @@
             <h1 class="titulo-noticia-small">
                 <?php echo $data['post_titulo']; ?><?php if ($data['post_status'] != 'publicado') {echo ' | ' . $data['post_status'];} ?> | <small><?php echo $data['post_timestamp']; ?></small>
             </h1>
+            <p>
+                <?php if ( $data['post_resumen'] != '' ) {
+                    echo $data['post_resumen'];
+                } ?>
+            </p>
             <p class="links-edicion-noticias">
                 <?php 
                 if ( $data['post_type'] == 'categorias' ) {

@@ -4,7 +4,7 @@ define('DB_SERVER', 'localhost');
 define('DB_USER', 'dbuser');
 define('DB_PASS', '123');
 define('DB_NAME', 'intervalo_bd');
-define ( 'POSTPERPAG', 2 );
+define ( 'POSTPERPAG', 30 );
 
 //CARPETAS
 define ( 'BASEDIR', dirname( __FILE__ ) . '/../../' );

@@ -60,7 +60,7 @@ function get_footer_scripts ($modulo) { ?>
 		case 'categorias':
 		case 'acciones':
 		case 'editar-post':
-		case 'editar-promos':
+		case 'editar-promo-acciones':
 		case 'editar-acciones':
 		case 'editar-categorias': ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>

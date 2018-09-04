@@ -11,7 +11,7 @@ if ( isAjax() ) {
     
     $pageActual = isset( $_POST['page'] ) ? intval( $_POST['page'] ) : 2;
     $categoria = isset( $_POST['categoria'] ) ? $_POST['categoria'] : '';
-    $postType = 'post';
+    $postType = isset( $_POST['post_type'] ) ? $_POST['post_type'] : 'post';
 
     $limit = POSTPERPAG;
 

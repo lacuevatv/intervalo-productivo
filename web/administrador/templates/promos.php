@@ -5,7 +5,7 @@
  * 
 */
 load_module( 'posts' );
-$posts = getPosts( 'promo', POSTPERPAG, '', 'fecha', 'all' );
+$posts = getPosts( 'promos', POSTPERPAG, '', 'fecha', 'all' );
 ?>
 <!---------- noticias ---------------->
 <div class="contenido-modulo">
@@ -13,30 +13,12 @@ $posts = getPosts( 'promo', POSTPERPAG, '', 'fecha', 'all' );
 		Ver Promos
 	</h1>
 	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="nav-noticias-interno">
-					<label>Filtrar por categoría</label>
-					<select name="post_categoria" id="post_categoria">
-						<option value="todas">Todas</option>
-						<?php 
-							$categorias = getPosts( 'categorias' );
-							if ( $categorias!=null ) :
-
-								for ($i=0; $i < count($categorias); $i++) { 
-									echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
-								}
-
-							endif;
-						?>
-					</select>
-				</div>
-			</div>
-		</div><!-- // row -->
+		
 		<div class="row">
 			<div class="col">
 			<ul class="loop-noticias-backend">
-                
+                <input type="hidden" name="post_type" id="post_type" value="promos">
+				<input type="hidden" name="post_categoria" id="post_categoria" value="todas">
             <?php if ($posts != null) :
 
 				for ($i=0; $i < count($posts); $i++) { 

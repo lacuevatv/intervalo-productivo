@@ -17,7 +17,7 @@ $posts = getPosts( 'categorias', '', '', 'orden', 'all' );
 		<div class="row">
 			<div class="col">
 			<ul class="loop-noticias-backend">
-                
+			<input type="hidden" name="post_type" id="post_type" value="categorias">
             <?php if ($posts != null) :
 
 				for ($i=0; $i < count($posts); $i++) { 
@@ -31,12 +31,7 @@ $posts = getPosts( 'categorias', '', '', 'orden', 'all' );
         	</ul>
         	</div><!-- // col -->
         </div><!-- // row -->
-    	<div class="row">
-    		<div class="col ver-mas-noticias">
-        		<button id="load-more" class="btn btn-primary">Ver más</button>
-        		<p class="loading-news-ajax"></p>
-        	</div>
-    	</div>
+    	
 		
 	</div><!-- // container gral modulo -->
 </div><!-- // container -->

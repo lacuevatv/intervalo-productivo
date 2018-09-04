@@ -7,7 +7,7 @@
 session_start();
 require_once('../functions.php');
 if ( isAjax() ) {
-    print_r($_POST);
+    
     //se toman los datos para variables
 	$connection          = connectDB();
 	$tabla               = 'posts';
@@ -31,6 +31,7 @@ if ( isAjax() ) {
     $acordion            = isset( $_POST['acordion'] ) ? json_decode($_POST['acordion']) : '';
     $destacado           = isset( $_POST['post_destacado'] ) ? $_POST['post_destacado'] : '0';
     $orden               = isset( $_POST['post_orden'] ) ? $_POST['post_orden'] : '0';
+    $linkExterno         = isset( $_POST['post_link_externo'] ) ? $_POST['post_link_externo'] : '';
     $postHead            = isset( $_POST['post_head'] ) ? $_POST['post_head'] : '';
     $fechaPost           = isset( $_POST['post_date'] ) ? $_POST['post_date'] : null;
 
@@ -38,12 +39,14 @@ if ( isAjax() ) {
     $postResumen         = mysqli_real_escape_string($connection, $postResumen);
     $postMiniTexto       = mysqli_real_escape_string($connection, $postMiniTexto);
 	$postContenido       = mysqli_real_escape_string($connection, $postContenido);
-	$postTitulo          = mysqli_real_escape_string($connection, $postTitulo);
+    $postTitulo          = mysqli_real_escape_string($connection, $postTitulo);
+    $linkExterno         = mysqli_real_escape_string($connection, $linkExterno);
     $postResumen         = filter_var($postResumen,FILTER_SANITIZE_STRING);
     $postMiniTexto       = filter_var($postMiniTexto,FILTER_SANITIZE_STRING);
     $postTitulo          = filter_var($postTitulo,FILTER_SANITIZE_STRING);
     $orden               = filter_var($orden,FILTER_SANITIZE_NUMBER_INT);
-
+    $linkExterno         = filter_var($linkExterno,FILTER_SANITIZE_URL);
+    
 	//si hay una galería hay que armar un array con las imagenes y luego serializarlas
 	if ( $postGaleria == 'true' ) {
 		//en la base de datos se escribe como 1 y 0 así que traduzco a 1 y 0 para que se guarde correctamente
@@ -95,13 +98,13 @@ if ( isAjax() ) {
 		}
 
         //sino se guarda
-        $query = "INSERT INTO $tabla (post_autor,post_pre_titulo,post_titulo,post_url,post_contenido,post_resumen,post_mini_texto,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_tabs,post_acordion,post_head,post_status,post_destacado,post_orden,post_type";
+        $query = "INSERT INTO $tabla (post_autor,post_pre_titulo,post_titulo,post_url,post_contenido,post_resumen,post_mini_texto,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_link_externo,post_tabs,post_acordion,post_head,post_status,post_destacado,post_orden,post_type";
         
         if ( $fechaPost != null ) {
             $query .= ",post_timestamp";
         }
 
-        $query .= ") VALUES ('$user', '$postPreTitulo', '$postTitulo', '$postUrl', '$postContenido', '$postResumen','$postMiniTexto', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria','$tabs','$acordion', '$postHead','$postStatus', '$destacado', '$orden','$postType'";
+        $query .= ") VALUES ('$user', '$postPreTitulo', '$postTitulo', '$postUrl', '$postContenido', '$postResumen','$postMiniTexto', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria', '$linkExterno','$tabs','$acordion', '$postHead','$postStatus', '$destacado', '$orden','$postType'";
 
         if ( $fechaPost != null ) {
             $query .= ", '".$fechaPost."'";
@@ -116,12 +119,13 @@ if ( isAjax() ) {
             echo $postID;
         } else  {
             echo 'error';
+            
         }
 
 	} //es viejo post
 		else {
-
-        $query = "UPDATE ".$tabla." SET post_autor='".$user."',post_pre_titulo='".$postPreTitulo."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_mini_texto='".$postMiniTexto."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."',post_tabs='".$tabs."',post_acordion='".$acordion."',post_head='".$postHead."', post_status='".$postStatus."', post_destacado='".$destacado."',post_orden='".$orden."',post_type='".$postType."'";
+            
+        $query = "UPDATE ".$tabla." SET post_autor='".$user."',post_pre_titulo='".$postPreTitulo."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_mini_texto='".$postMiniTexto."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."', post_link_externo='".$linkExterno."', post_tabs='".$tabs."',post_acordion='".$acordion."',post_head='".$postHead."', post_status='".$postStatus."', post_destacado='".$destacado."',post_orden='".$orden."',post_type='".$postType."'";
 
         if ( $fechaPost != null ) {
             $query .= ",post_timestamp='".$fechaPost."'";
