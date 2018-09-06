@@ -1,3 +1,5 @@
+<?php include 'header.php'; ?>
+
 <section class="no-padding" data-toggle-onscroll="true">
 
         <a href="http://www.intervaloproductivo.com.ar/turnos/"  target="_blank"  class="btn-float">
@@ -35,370 +37,110 @@
                                 <circle cx="32" cy="32" r="31"></circle>
                             </svg>
                         </span>
+                        
                         <ul class="list-unstyled list-inline">
                             <li data-filter="*" class="active">
                                 <span>
                                     <span>All</span>
                                 </span>
                             </li>
-                            <li data-filter=".photography">
+                            <?php 
+                            $categorias = getPosts( 'categorias' );
+                            if ($categorias != null) :
+                                
+                                foreach ( $categorias as $categoria ) { ?>
+                                    <li data-filter=".filter-<?php echo $categoria['post_ID']; ?>">
+                                        <span>
+                                            <span><?php echo $categoria['post_titulo']; ?></span>
+                                        </span>
+                                    </li>
+                                <?php }
+
+                            endif;
+                            ?>
+                            <!--<li data-filter=".photography">
                                 <span>
                                     <span>Pausas Activas</span>
                                 </span>
-                            </li>
-                            <li data-filter=".magazine">
-                                <span>
-                                    <span>Bienestar</span>
-                                </span>
-                            </li>
-                            <li data-filter=".retouching">
-                                <span>
-                                    <span>Salud</span>
-                                </span>
-                            </li>
-                            <li data-filter=".typography">
-                                <span>
-                                    <span>Eventos</span>
-                                </span>
-                            </li>
-                            <li data-filter=".typography">
-                                <span>
-                                    <span>Deportivo</span>
-                                </span>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
+                    
                     <div id="grid-1" class="row items-container sp-10">
                         <div class="items-loader">
                             <svg class="circular" viewBox="25 25 50 50">
                                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
                             </svg>
                         </div>
-                        <div class="col-lg-3 col-md-6 masonry-item photography">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-1.jpg" class="pf-image" alt="Tenaris">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Tenaris</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Gimnasia Laboral - Masajes</a>
-                                                    </li>
-                                                </ul>
+
+                        <?php 
+                        $clientes = getClientes();
+
+                        if ( $clientes != null ) :
+                            
+                            foreach ( $clientes as $cliente ) {
+                                $imagen = UPLOADSURL . '/' . $cliente['cliente_imagen'];
+                                if ( $cliente['cliente_imagen'] == '' ) {
+                                    $imagen = MAINSURL . '/images/default-rectangular.png';
+                                }
+
+                                $serviciosActivos = '';
+                                $servicios = $cliente['cliente_servicios_activos'];
+                                $filtro = '';
+
+                                if ( $servicios != '' ) {
+                                    $servicios = explode(',' , $servicios);    
+
+                                    for ($i=0; $i < count($servicios)-1 ; $i++) { 
+                                        $post = getPostById($servicios[$i]);
+                                        
+                                        if ( $post != null) {
+                                            
+                                            $filtro .= ' filter-' . $post['post_categoria'];
+                                            if ( $i != 0 ) {
+                                                $serviciosActivos .= ' - ';    
+                                            }
+                                            $serviciosActivos .= '<a href="'.getCategoryData($post['post_categoria'])['slug'] . '/' . $post['post_url'].'">'.$post['post_titulo'].'</a>';
+                                        }
+
+                                    }
+                                }
+                                
+                                ?>
+                                <div class="col-lg-3 col-md-6 masonry-item <?php echo $filtro; ?>">
+                                    <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
+                                        data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
+                                        <div class="inner-wrapper">
+                                            <div class="portfolio-inner">
+                                                <div class="portfolio-main-image">
+                                                    <figure>
+                                                        <img src="<?php echo $imagen; ?>" class="pf-image" alt="Tenaris">
+                                                    </figure>
+                                                </div>
+                                                <div class="portfolio-content">
+                                                    <div class="title-wrapper">
+                                                        <h2>
+                                                            <a href="#" rel="bookmark"><?php echo $cliente['cliente_titulo']; ?></a>
+                                                        </h2>
+                                                        <ul class="category">
+                                                            <li>
+                                                                <?php echo $serviciosActivos; ?>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <a class="portfolio-overlay-link" href="#"></a>
+                                                </div>
                                             </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item photography">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-2.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Beautiful Garden</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item photography">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-3.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Waves</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item magazine">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-4.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">WAP Insider</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item magazine">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-5.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Portraits</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item magazine">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-6.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Brightness</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item magazine">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-7.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Black &amp; White</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item typography">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-8.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">WAD Magazine</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item typography">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-9.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Mountains &amp; Rocks</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item retouching">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-10.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Ano Year</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item retouching">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-11.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Books</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 masonry-item retouching">
-                            <div class="portfolio-item grid masonry hover-bottom style-hover buttons-circle text-left text-light" data-custom-image="true"
-                                data-custom-image-selector="{ &quot;src&quot;: &quot;.pf-image&quot; }">
-                                <div class="inner-wrapper">
-                                    <div class="portfolio-inner">
-                                        <div class="portfolio-main-image">
-                                            <figure>
-                                                <img src="./images/brands/brand-12.jpg" class="pf-image" alt="San Francisco">
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-content">
-                                            <div class="title-wrapper">
-                                                <h2>
-                                                    <a href="#" rel="bookmark">Flowers</a>
-                                                </h2>
-                                                <ul class="category">
-                                                    <li>
-                                                        <a href="#">Photography</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a class="portfolio-overlay-link" href="#"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php }
+                        ?>
+                            
+                        <?php endif; ?>
+                        
+                        
+                        
                     <!--
                     <div class="page-nav page-ajax">
                         <nav aria-label="Page navigation">
@@ -415,3 +157,5 @@
         </div>
     </div>
 </section>
+
+<?php include 'footer.php'; ?>

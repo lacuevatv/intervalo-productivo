@@ -33,7 +33,7 @@ global $pageActual;
 	<div id="wrap">
 	
 		<!-- Start Main Header -->
-		<header class="main-header header-overlay logo-sm-left main-header--style-neoclassic ">
+		<header class="main-header header-overlay logo-sm-left main-header--style-neoclassic<?php if ($pageActual != 'inicio' ) {echo ' blacknav'; } ?> ">
 
 			<!-- Start Mainbar -->
 			<section class="no-side-spacing header-fullwidth-justified main-bar-container">
@@ -52,9 +52,9 @@ global $pageActual;
 								</a>
 								<div id="main-header-nav" class="collapse navbar-collapse">
 									<ul class="nav navbar-nav main-nav">
-										<li class="menu-item local-scroll current-menu-item"><a href="index.html"><span class="link-txt">Inicio</span></a></li>
+										<li class="menu-item local-scroll current-menu-item"><a href="<?php echo MAINSURL; ?>"><span class="link-txt">Inicio</span></a></li>
 										
-										<li class="menu-item local-scroll"><a href="clientes.html"><span class="link-txt">Portfolio</span></a></li>
+										<li class="menu-item local-scroll"><a href="<?php echo MAINSURL; ?>/clientes"><span class="link-txt">Portfolio</span></a></li>
 										<li class="menu-item megamenu">
 											<a href="#">
 												<span class="link-txt">Acciones</span>
@@ -201,7 +201,7 @@ global $pageActual;
 										</li>
 										<li class="menu-item local-scroll"><a href="http://www.intervaloproductivo.com.ar/turnos"><span class="link-txt">Turnos</span></a></li>
 										<li class="menu-item local-scroll"><a href="http://www.intervaloproductivo.com.ar/blog"><span class="link-txt">Blog</span></a></li>
-										<li class="menu-item local-scroll"><a href="contacto.html"><span class="link-txt">Contacto</span></a></li>
+										<li class="menu-item local-scroll"><a href="<?php echo MAINSURL; ?>/contacto"><span class="link-txt">Contacto</span></a></li>
 										
 									</ul>
 									

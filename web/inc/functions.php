@@ -173,18 +173,6 @@ function es_categoria ( $uri ) {
 	}	
 }
 
-//devuelve los datos de la categoria a partir del slug
-function getCategoryData( $slug ) {
-	global $categorias;
-	for ($i=0; $i < count($categorias); $i++) { 
-		if ( $categorias[$i]['slug'] == $slug ) {
-		return $categorias[$i];
-		} else {
-			continue;
-		}
-	}
-}
-
 //esta funcion recupera el slug del row a partir de una categoria
 function getRowSlug($slug) {
 	global $categorias;
@@ -583,6 +571,50 @@ function singlePostData ( $postSlug ) {
 
 }
 
+function getPostById($id) {
+	$connection = connectDB();
+	$tabla = 'posts';
+
+	$query  = "SELECT * FROM " .$tabla. " WHERE post_ID='".$id."' LIMIT 1 ";
+	$result = mysqli_query($connection, $query);
+
+	
+
+	if ( $result->num_rows == 0 ) {
+		$singlePost = null;
+	} else {
+
+		$singlePost = mysqli_fetch_array($result);
+
+	}
+	closeDataBase( $connection );
+	
+	return $singlePost;
+}
+
+function getCategoryData($id) {
+	$connection = connectDB();
+	$tabla = 'posts';
+
+	$query  = "SELECT * FROM " .$tabla. " WHERE post_ID='".$id."' LIMIT 1 ";
+	$result = mysqli_query($connection, $query);
+
+	closeDataBase( $connection );
+
+	if ( $result->num_rows == 0 ) {
+		$singlePost = null;
+	} else {
+
+		$singlePost = mysqli_fetch_array($result);
+		
+		return array(
+			'nombre' => $singlePost['post_titulo'],
+			'slug' => $singlePost['post_url'],
+		);
+	}
+
+}
+
 //busca el slider en base de datos de acuerdo a su 'ubicacion' pasada
 function getSliders( $slider ) {
 
@@ -699,222 +731,3 @@ function getUrlPromo() {
 	closeDataBase($connection);
 }
 
-/*
- * TRAE El MENÚ DEL FOOTER
- * DEVUELVE DATA CON A INFO
-*/
-function getMenuFooter( $columna ) {
-	$connection = connectDB();
-	$tabla = 'options';
-	$query  = "SELECT * FROM " .$tabla . " WHERE options_name='".$columna."' ORDER by options_value asc";
-
-	$result = mysqli_query($connection, $query);
-
-	$menu = $result->fetch_array();
-
-	isset($connection) ? mysqli_close($connection) : exit;
-
-	return $menu;
-}
-
-/*
- * TRAE LOS VIDEOS
- * DEVUELVE DATA CON A INFO
-*/
-function getVideosFooter() {
-	$connection = connectDB();
-	$tabla = 'options';
-	$query  = "SELECT * FROM " .$tabla . " WHERE options_name='videos_inicio'";
-
-	$result = mysqli_query($connection, $query);
-
-	$videos = $result->fetch_array();
-
-	isset($connection) ? mysqli_close($connection) : exit;
-	return unserialize($videos['options_note']);
-}
-
-/*
- * TRAE LOS VIDEOS
- * DEVUELVE DATA CON A INFO
-*/
-function getBoletines() {
-	$connection = connectDB();
-	$tabla = 'boletines';
-	$query  = "SELECT * FROM " .$tabla. " ORDER by boletin_number desc";
-		
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		echo '<div>Ninguno cargado</div>';
-	} else {
-
-		while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
-			$boletines[] = $row;
-		}
-		
-		return $boletines;
-
-	}//else
-	closeDataBase( $connection );
-}
-
-/*
- * TRAE LAS PREGUNTAS FRECUENTES
- * DEVUELVE DATA CON INFO
-*/
-function getPreguntasFrecuentes () {
-	$connection = connectDB();
-	$tabla = 'preg_frecuentes';
-	$query  = "SELECT * FROM " .$tabla. " ORDER by preg_orden";
-		
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		return null;
-	} else {
-
-		while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
-			$preguntas[] = $row;
-		}
-		
-		return $preguntas;
-
-	}//else
-	closeDataBase( $connection );
-}
-
-
-
-/*
- * TRAE LOS TRAMITES CARGADOS
- * DEVUELVE DATA CON INFO
-*/
-function getTramites ( $categoria ) {
-	$connection = connectDB();
-	$tabla = 'tramites';
-	$query  = "SELECT * FROM " .$tabla. " WHERE tramite_categoria= '".$categoria."' ORDER by tramite_orden";
-		
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		return null;
-	} else {
-
-		while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
-			$tramites[] = $row;
-		}
-		
-		return $tramites;
-
-	}//else
-	closeDataBase( $connection );
-}
-
-//busca los cursos
-function getCursos( $post_type, $limit = POSTPERPAG, $categoria = 'none' ) {
-	$connection = connectDB();
-	$tabla = 'cursos';
-
-	//queries según parámetros
-	$query  = "SELECT * FROM " .$tabla. " WHERE cursos_type='".$post_type."'";
-	//si tiene categoria:
-	if ( $categoria != 'none' ) {
-		$query  .= " AND cursos_categoria='".$categoria."'";
-	}
-	
-	$query  .= " ORDER by cursos_orden ASC LIMIT ".$limit." ";
-
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		$posts = null;
-	} else {
-
-		while ( $row = $result->fetch_array() ) {
-			$posts [] = $row;
-		}
-	}
-	
-	return $posts;
-}
-
-//busca curso
-function getCursoByUri( $url ) {
-	$connection = connectDB();
-	$tabla = 'cursos';
-
-	//queries según parámetros
-	$query  = "SELECT * FROM " .$tabla. " WHERE cursos_url='".$url."'";
-	
-	$result = mysqli_query($connection, $query);
-	$post = mysqli_fetch_array($result);
-	
-	return $post;
-}
-
-/*
-BUSCA ULTIMAS NOVEDADES
-*/
-function getNovedades($limit = -1) {
-	$connection = connectDB();
-	$tabla = 'posts';
-
-	//queries según parámetros
-	$query  = "SELECT * FROM " .$tabla. " where post_categoria='novedades' ORDER by post_fecha DESC";
-	
-	if ($limit != -1 ) {
-		$query  .= " LIMIT ".$limit;
-	}
-
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		
-		$posts = null;
-
-	} else {
-
-		while ( $row = $result->fetch_array() ) {
-			$posts [] = $row;
-		}
-	}
-	
-	return $posts;
-}
-
-function getNovedad($url) {
-	$connection = connectDB();
-	$tabla = 'posts';
-
-	//queries según parámetros
-	$query  = "SELECT * FROM " .$tabla. " where post_url='".$url."'";
-
-	$result = mysqli_query($connection, $query);
-	
-	if ( $result->num_rows == 0 ) {
-		
-		$post = null;
-
-	} else {
-		$post = $result->fetch_array();
-	}
-	
-	return $post;
-}
-
-function getPagination() {
-	$posts = getNovedades();
-
-	$numero = count($posts);
-
-	if ( $numero > POSTPERPAG ) {
-		echo '<div class="wrapper-mas-button">
-			<button id="load-more" data-post="'.POSTPERPAG.'">
-				Ver más
-			</button>
-			<p style="margin:20px auto;display:none;">Cargando...</p>
-		</div>';
-	}
-
-}
