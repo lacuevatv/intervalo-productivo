@@ -1,3 +1,10 @@
+<?php
+$imagen = $imagen = '<img src="'.MAINSURL . '/images/default-cuadrado.png" alt="'. $data['post_titulo'] .'">';
+MAINSURL . '/images/default-cuadrado.png';
+if ($data['post_imagen'] != '') {
+    $imagen = '<img style="max-width:initial;width:150%;" src="'.UPLOADSURL . '/' . $data['post_imagen'].'" alt="'. $data['post_titulo'] .'">';
+}
+?>
 <div class="col-lg-4 col-sm-10 offset-sm-1 offset-lg-0 px-0">
 
     <article class="blog-post post-featured-alt" data-hover3d="true">
@@ -6,19 +13,16 @@
 
             <figure class="post-image hmedia">
                 <figure>
-                    <img width="380" height="380" src="<?php echo UPLOADSURL . '/' . $data['post_imagen']; ?>" alt="<?php echo $data['post_titulo']; ?>">
+                    <?php echo $imagen; ?>
                 </figure>
             </figure><!-- /.main-image -->
         
             <div class="post-contents">
-
                 <header>
                     <h2 class="entry-title pb-25">
                         <a href="#" rel="bookmark"><?php echo $data['post_titulo']; ?></a>
                     </h2>
-                    
                 </header>
-        
             </div><!-- /.contents -->
         
         </div> <!-- /.blog-post-inner -->

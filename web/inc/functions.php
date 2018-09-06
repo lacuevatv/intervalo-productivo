@@ -442,7 +442,7 @@ function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'non
 	if ( $number != -1 ) {
 		$query .= " LIMIT ".$number." ";
 	}
-	echo $query;
+	
 	$result = mysqli_query($connection, $query);
 	
 	closeDataBase( $connection );
