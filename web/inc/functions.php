@@ -427,8 +427,8 @@ function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'non
 
 	$query  = "SELECT * FROM " .$tabla;
 	$query .= " WHERE post_type = '".$postType."'";
-	$query .= " post_status='";
-	$query .= $status . "'";
+	/*$query .= " AND post_status='";
+	$query .= $status . "'";*/
 	if ( $categoria != 'none' ) {
 		$query .= " AND post_categoria = '".$categoria."'";
 	}
@@ -436,13 +436,13 @@ function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'non
 		$query .= " AND post_url!='".$exclude."'";
 	}
 	if ( $status == 'publicado' ) {
-		$query .= " AND post_fecha <= '".$fecha_actual."'";	
+		$query .= " AND post_timestamp <= '".$fecha_actual."'";	
 	}
-	$query .= " ORDER by post_orden asc, post_fecha desc ";
+	$query .= " ORDER by post_orden asc, post_timestamp desc ";
 	if ( $number != -1 ) {
 		$query .= " LIMIT ".$number." ";
 	}
-	
+	echo $query;
 	$result = mysqli_query($connection, $query);
 	
 	closeDataBase( $connection );
@@ -606,7 +606,7 @@ function getSliders( $slider ) {
 	closeDataBase( $connection );
 } //getSliders()
 
-function getClientes( ) {
+function getClientes() {
 
 	$connection = connectDB();
 	$tabla = 'clientes';
@@ -622,7 +622,7 @@ function getClientes( ) {
 			$rows[] = $row;
 		}
 	}//else
-	
+
 	closeDataBase( $connection );
 
 	return $rows;
