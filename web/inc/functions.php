@@ -606,6 +606,28 @@ function getSliders( $slider ) {
 	closeDataBase( $connection );
 } //getSliders()
 
+function getClientes( ) {
+
+	$connection = connectDB();
+	$tabla = 'clientes';
+	$query  = "SELECT * FROM " .$tabla. " ORDER by cliente_orden asc";
+		
+	$result = mysqli_query($connection, $query);
+	
+	if ( $result->num_rows == 0 ) {
+		$rows = null;
+	} else {
+
+		while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
+			$rows[] = $row;
+		}
+	}//else
+	
+	closeDataBase( $connection );
+
+	return $rows;
+} //getSliders()
+
 
 function openPopUp ( $page ) {
 	

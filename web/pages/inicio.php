@@ -59,263 +59,13 @@ foreach ($slider as $slide ) {
             <h5 class="subtitle md text-uppercase">Nuestras Acciones</h5>
             <h2 class="title">Generamos Sinergia</h2>
         </header>
-        <!--<header class="section-title section-title-default align-center">
-            <h5 class="subtitle md text-uppercase">Nuestras Acciones</h5>
-            <h2 class="title">Generamos Sinergia</h2>
-            
-        </header>-->
+       
 
     </div> 
 
 </div> 
 </div> 
 
-
-<!--				
-<div class="container-fluid">
-<div class="row">
-    <div class="col-sm-12 px-0">
-
-        <div class="portfolio-grid" data-plugin-portfolio="true">
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="masonry-filters classic neoclassic" data-target="#grid-5addd1c0855d7">
-                        <ul class="list-unstyled list-inline">
-                            <li data-filter="*" class="active"><span><span>All</span></span></li>
-                            <li data-filter=".concept"><span><span>Pausas Activas</span></span></li>
-                            <li data-filter=".creative"><span><span>Bienestar</span></span></li>
-                            <li data-filter=".editing"><span><span>Salud</span></span></li>
-                            <li data-filter=".belleza"><span><span>Belleza</span></span></li>
-                            <li data-filter=".eventos"><span><span>Eventos</span></span></li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div id="grid-5addd1c0855d7" class="row items-container grid-5addd1c0855d7 listing-lightbox-gallery sp-0">
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item editing">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-23.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                        
-
-                                <div class="portfolio-content">
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-23.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item concept">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-24.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                                
-
-                                <div class="portfolio-content">
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-24.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item creative">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-25.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                
-
-                                <div class="portfolio-content">
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-25.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item creative editing">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-26.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                    
-
-                                <div class="portfolio-content" >
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-26.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item concept editing">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-27.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                                
-
-                                <div class="portfolio-content">
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-27.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-                <div class="col-lg-4 col-md-6 col-sm-12 masonry-item concept">
-                    <article class="portfolio-item grid hover-bottom-shadow hover-bottom-shadow-alt style-hover text-light buttons-circle text-left text-light">
-                        <div class="inner-wrapper">
-
-                            <div class="portfolio-inner">
-
-                                <div class="portfolio-main-image">
-                                    <figure>
-                                        <img width="640" height="460" src="./images/portfolio/grid-28.jpg" alt="Interface Presentation">
-                                    </figure>
-                                </div>
-                        
-
-                                <div class="portfolio-content">
-
-                                    <div class="title-wrapper">
-                                        <h2><a href="#" rel="bookmark">Interface Presentation</a></h2>
-                                        <ul class="category">
-                                            <li><a href="#">Editing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="portfolio-footer">
-                                        <a href="./images/portfolio/grid-28.jpg" data-type="image" class="btn circle bordered lightbox-link lightbox-gallery">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </a>
-                                        <a href="#" class="btn circle bordered"><span><i class="fa fa-long-arrow-right"></i></span></a>
-                                    </div>
-                                </div> 
-
-                            </div> 
-
-                        </div> 
-                    </article>
-                </div> 
-
-            </div> 
-
-        </div>
-
-    </div> 
-</div> 
-</div> -->
 
 </section>
 
@@ -571,10 +321,7 @@ foreach ($slider as $slide ) {
             <h5 class="subtitle md text-uppercase">Potenciamos tu</h5>
             <h2 class="title" style="font-family: 'Poppins', 'Open Sans', sans-serif; ">Salud física & Bienestar laboral</h2>
         </header>
-        <!--<header class="section-title section-title-default">
-            <h5 class="subtitle md text-uppercase">Potenciamos tu</h5>
-            <h2 class="title">Salud física & Bienestar laboral</h2>
-        </header>-->
+        
     </div> <!-- /.col-lg-8 mx-auto -->
 
 </div> <!-- /.row -->
@@ -590,9 +337,6 @@ foreach ($slider as $slide ) {
             <div class="contents">
                 <h3 class="weight-medium">Productividad</h3>
                 <p>Incrementa la productividad y el rendimiento laboral</p>
-                <!--<a href="#" class="btn btn-naked border-thin text-uppercase">
-                    <span>Purchase</span>
-                </a>-->
 
             </div>
         </div><!-- /.iconbox -->
@@ -610,9 +354,6 @@ foreach ($slider as $slide ) {
             <div class="contents">
                 <h3 class="weight-medium">Autoestima</h3>
                 <p>Fortalece el sentimiento de autovaloración</p>
-                <!--<a href="#" class="btn btn-naked border-thin text-uppercase">
-                    <span>Purchase</span>
-                </a>-->
 
             </div>
         </div><!-- /.iconbox -->
@@ -628,9 +369,7 @@ foreach ($slider as $slide ) {
             <div class="contents">
                 <h3 class="weight-medium">Relaciones</h3>
                 <p>Mejora el clima laboral y las interrelaciones</p>
-                <!--<a href="#" class="btn btn-naked border-thin text-uppercase">
-                    <span>Purchase</span>
-                </a>-->
+                
 
             </div>
         </div><!-- /.iconbox -->
@@ -644,51 +383,6 @@ foreach ($slider as $slide ) {
 </section>
 <!-- /End Features -->
 
-<!--
-<section class="section pb-100 pt-90" id="experience">
-
-<div class="container">
-
-<div class="row align-items-center">
-
-    <div class="col-lg-6 pr-5 mb-md-5">
-        <h2 class="h1 mt-0 mb-4">Build your site in minutes.</h2>
-        <p class="pr-5 mb-5"><span style="color: #83888f; font-size: 18px; line-height: 34px;">No coding skills required to create unique sites. Customize your site in real-time, and see the resulsts instantly.</span></p>
-
-        <a href="#" class="btn btn-solid semi-round btn-md border-none wide btn-linear">
-            <span>Build your site today</span>
-        </a>
-
-        <a href="#" class="btn btn-default semi-round btn-md border-thin wide btn-dark btn-dark-alt">
-            <span>Free Trial</span>
-        </a>
-
-    </div> 
-
-    <div class="col-lg-6">
-
-        <div class="content-box content-box-btn content-box-btn-alt">
-
-            <figure>
-                <img data-panr="true" data-plugin-options='{ "scaleDuration": 0.5, "scaleTo": 1.08,"moveTarget": ".content-box" }' src="http://booclassic.themerella.com/wp-content/uploads/2018/04/lightbox.jpg" alt="Image">
-            </figure>
-            <a href="https://www.youtube.com/watch?v=eWeJnVFZfu4" class="lightbox-play-button lightbox-link btn-custom btn-linear lightbox-link btn-md" data-type="video">
-                <i>
-                    <span class="btn-text"><span>Play</span></span>
-                    <span class="btn-icon"><i class="fa fa-play"></i></span>
-                </i>
-            </a>
-
-        </div>
-
-    </div> 
-
-</div> 
-
-</div> 
-
-</section>
--->
 
 <!-- /Start Features -->
 <section class="section pt-40" id="features">
@@ -702,10 +396,7 @@ foreach ($slider as $slide ) {
             <h5 class="subtitle md text-uppercase">Nuestros Clientes</h5>
             <h2 class="title" style="font-family: 'Poppins', 'Open Sans', sans-serif; ">Confían en nosotros</h2>
         </header>
-        <!--<header class="section-title section-title-default">
-            <h5 class="subtitle md text-uppercase">Nuestros Clientes</h5>
-            <h2 class="title">Confían en nosotros</h2>
-        </header>-->
+        
     </div> <!-- /.col-lg-8 mx-auto -->
 
 </div> <!-- /.row -->
@@ -716,164 +407,27 @@ foreach ($slider as $slide ) {
 
 <section class="section pt-50 pb-50">
 
+<?php 
+    $clientes = getClientes();
+
+    if ( $clientes != null ) : ?>
+
 <div class="col-md-10 mx-auto">
 
 <div class="carousel-container " data-carousel-options='{"autoplay":"true","autoplayTimeout":"6000","items":"2"}'>
 <div class="carousel-items">
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    
 
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-1.jpg" alt="Client">
-        </figure>
+        <?php
 
-    </div> 
-    <div class="col-lg-3 col-md-4 col-sm-6">
+            foreach ( $clientes as $cliente ) { ?>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <figure class="client-opaque-inverted client-opaque-inverted-alt">
+                        <img src="<?php echo UPLOADSURL . '/' . $cliente['cliente_imagen']; ?>" alt="<?php echo UPLOADSURL . '/' . $cliente['cliente_titulo']; ?>">
+                    </figure>      
+                </div> 
+        <?php } ?>
 
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-2.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-3.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-4.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-5.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-6.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-7.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-8.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-9.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-10.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-11.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-12.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-13.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-14.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-15.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-16.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-17.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-18.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-19.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-20.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-21.jpg" alt="Client">
-        </figure>
-
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-
-        <figure class="client-opaque-inverted client-opaque-inverted-alt">
-            <img src="./images/brands/brand-22.jpg" alt="Client">
-        </figure>
-
-    </div>
     
 
 </div>
@@ -888,6 +442,7 @@ foreach ($slider as $slide ) {
 </div>
 </div>
 
+<?php endif; ?>
 
 <!--<div class="container">
 <div class="row align-items-center slick">
