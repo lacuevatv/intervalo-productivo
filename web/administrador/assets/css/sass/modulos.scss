@@ -212,3 +212,26 @@
 		margin: 0 auto;
 	}
 }
+
+.servicios-activos {
+  margin-top: 20px;
+  font-size: 110%;
+  columns: 2;
+
+  .servicio-item {
+    padding: 2px 0;
+    border: none;
+    cursor: pointer;
+    margin-top: 2px;
+    padding: 3px 5px;
+    &:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+  }
+
+  .servicio-item-selected {
+    background-color: rgba(34,130,212,1);
+    color: #fff;
+  }
+
+}

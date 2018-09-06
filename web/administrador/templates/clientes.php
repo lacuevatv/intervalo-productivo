@@ -10,6 +10,7 @@ if ($userStatus != '0' && $userStatus != '1' ) {
   	exit;
 }
 require_once("inc/functions.php");
+load_module( 'posts' );
 load_module( 'clientes' );
 //recupera slug a buscar
 
@@ -79,10 +80,34 @@ $clientes = getClientes();
 							<textarea name="cliente_texto"><?php echo $clienteTexto; ?></textarea>
 						</div>
 
-						<div class="form-group input-sliders">
-                            <label for="cliente_servicios_activos">Servicios Activos:</label>
-                            <input type="text" name="cliente_servicios_activos" value="<?php echo $clienteServicios; ?>">
-                        </div>
+						
+						<div class="accordion">
+
+							<!------ SERVICIOS ACTIVOS  ---------->
+							<h3>Servicios Activos:</h3>
+							<div>
+								<input type="hidden" name="cliente_servicios_activos" value="<?php echo $clienteServicios; ?>">
+								<p style="text-transform:uppercase;font-size:80%;">
+									Seleccionar servicios:
+								</p>
+								<ul class="servicios-activos">
+									
+								
+								<?php 
+									$posts = getPosts( 'acciones', '', '', 'orden', 'all' );
+
+									foreach ($posts as $post) { ?>
+										<li class="servicio-item<?php if ( strrpos($clienteServicios, $post['post_ID']) !== false  ) { echo ' servicio-item-selected'; } ?>" data-id="<?php echo $post['post_ID']; ?>">
+											<?php echo $post['post_titulo']; ?>
+										</li>
+										
+									<?php }
+								?>
+								</ul>
+							</div>
+							
+						
+						</div>
 
 					</div><!-- //col -->
 				</div><!-- //row -->

@@ -3,7 +3,17 @@
 */
 
 $(document).ready(function (){
-		
+	
+	/*
+	 accordion by jquery ui de videos, galería de imagenes, etc
+	*/
+    $( '.accordion' ).accordion({
+		heightStyle: "content",
+		active: false,
+		collapsible: true,
+	});
+
+	
 	//Sube nueva imagen para crear nuevo slider
 	$('#imagen_destacada_wrapper').on('click','#new-item',function(){
 
@@ -80,7 +90,7 @@ $(document).ready(function (){
 		var titulo = $(input[2]).val();
         var url = $(input[3]).val();
         var serviciosActivos = $(input[4]).val();
-		
+
 		var msj = ID.find('.msj-guardar');
 		
 		if (orden == '') {
@@ -190,5 +200,29 @@ $(document).ready(function (){
 		.load( templatesDir + '/media-browser.php' );
 
 	});//modificar la foto
+
+	$(document).on('click', '.servicio-item', function(){
+		var input = $($(this).closest('div')).find('input');
+		var id = $(this).attr('data-id');
+		var valor = $(input).val();
+
+		if ( $(this).hasClass('servicio-item-selected') ) {
+			
+			//se deselecciona
+			$(this).removeClass('servicio-item-selected');
+			//hay que remover eses valor
+			var indexRemover = valor.indexOf(id);
+			//recorta desde el inicio hasta el indice a remover y luego desde el indice a remover + 2 (porque es el id + la coma)
+			valor = valor.slice(0, indexRemover) + valor.slice(indexRemover+(id.length-1)+2);
+			$(input).val(valor);
+		} else {
+			
+			//se selecciona
+			$(this).addClass('servicio-item-selected');
+			$(input).val(valor+id+',');
+		}
+		
+	});
+	
 
 });//ready

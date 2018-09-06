@@ -3,7 +3,7 @@
 */
 
 $(document).ready(function (){
-		
+	
 	//Sube nueva imagen para crear nuevo slider
 	$('#imagen_destacada_wrapper').on('click','#new-item',function(){
 		var ubicacion = $('.sliders-wrapper').attr('id');

@@ -1151,6 +1151,26 @@ ul.dropdown-menu li {
   margin: 0 auto;
 }
 
+.servicios-activos {
+  margin-top: 20px;
+  font-size: 110%;
+  columns: 2;
+}
+.servicios-activos .servicio-item {
+  padding: 2px 0;
+  border: none;
+  cursor: pointer;
+  margin-top: 2px;
+  padding: 3px 5px;
+}
+.servicios-activos .servicio-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.servicios-activos .servicio-item-selected {
+  background-color: #2282d4;
+  color: #fff;
+}
+
 /* ---- 7 seccion noticias ---- */
 .loop-noticias-backend {
   list-style: none;
