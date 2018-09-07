@@ -5,22 +5,9 @@
 */
 
 include 'header.php';
-?>
  
-<!-- <section class="no-padding hidden"> -->
-<section class="no-padding" data-toggle-onscroll="true">
+getTemplate('turnos'); ?>
 
-<a href="http://www.intervaloproductivo.com.ar/turnos/"  target="_blank"  class="btn-float ">
-    <span class="btn-txt">Turnos ONLINE</span>
-    <span class="btn-icon"><i class="fa fa-play"></i></span>
-</a>
-
-<!--<a href="https://www.youtube.com/watch?v=eWeJnVFZfu4" data-type="video" target="_blank" rel="noopener" class="btn-float lightbox-link">
-    <span class="btn-txt">Turnos ONLINE</span>
-    <span class="btn-icon"><i class="fa fa-play"></i></span>
-</a>-->
-
-</section>
 
 <!-- Start #wrap -->
 

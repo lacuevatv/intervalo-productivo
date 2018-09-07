@@ -1,19 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
 
-<section class="no-padding" data-toggle-onscroll="true">
-
-        <a href="http://www.intervaloproductivo.com.ar/turnos/"  target="_blank"  class="btn-float">
-            <span class="btn-txt">Turnos ONLINE</span>
-            <span class="btn-icon"><i class="fa fa-play"></i></span>
-        </a>
-        
-        <!--<a href="https://www.youtube.com/watch?v=eWeJnVFZfu4" data-type="video" target="_blank" rel="noopener" class="btn-float lightbox-link">
-            <span class="btn-txt">Turnos ONLINE</span>
-            <span class="btn-icon"><i class="fa fa-play"></i></span>
-        </a>-->
-
-    </section>
-
+getTemplate('turnos'); ?>
 
 <!-- Start Contact Info -->
 <section class="section pt-100 ">

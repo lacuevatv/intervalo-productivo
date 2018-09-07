@@ -1,6 +1,3 @@
-<?php 
-global $pageActual;
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,29 +8,28 @@ global $pageActual;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/theme-vendors.css">
-	<link rel="stylesheet" href="css/theme.css">
-	<link rel="stylesheet" href="css/theme-color/theme-neoclassic.css">
-	<script src="vendors/modernizr.min.js"></script>
+	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme-vendors.css">
+	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme.css">
+	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme-color/theme-neoclassic.css">
+	<script src="<?php echo MAINSURL; ?>/vendors/modernizr.min.js"></script>
 	<meta name="keywords" content="modern, creative, minimal">
 	<meta name="description" content="Intervalo Productivo">
 	
-	<link rel="stylesheet" type="text/css" href="vendors/themepunch/settings.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo MAINSURL; ?>/vendors/themepunch/settings.css">
 	
 	<!--Slick CSS-->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAINSURL; ?>/css/slick.css">
 </head>
 
 <body class="footer-fixed">	
-	<?php
-        openPopUp($pageActual);
-
-    ?>
+	
+	<?php openPopUp(PAGEACTUAL); ?>
+	
 	<div id="wrap">
 	
 		<!-- Start Main Header -->
-		<header class="main-header header-overlay logo-sm-left main-header--style-neoclassic<?php if ($pageActual != 'inicio' ) {echo ' blacknav'; } ?> ">
+		<header class="main-header header-overlay logo-sm-left main-header--style-neoclassic<?php if (PAGEACTUAL != 'inicio' ) {echo ' blacknav'; } ?> ">
 
 			<!-- Start Mainbar -->
 			<section class="no-side-spacing header-fullwidth-justified main-bar-container">
@@ -44,11 +40,11 @@ global $pageActual;
 
 								<div class="navbar-header d-lg-none d-xl-none py-0 px-0">
 									<a href="index.html" class="navbar-brand">
-										<img src="./images/logo/logo-color-black.png" alt="Intervalo Productivo">
+										<img src="<?php echo MAINSURL; ?>/images/logo/logo-color-black.png" alt="Intervalo Productivo">
 									</a>
 								</div>
 								<a href="index.html" class="navbar-brand d-sm-none d-md-none d-lg-inline-block">
-									<img src="./images/logo/logo-color.png" alt="Intervalo Productivo">
+									<img src="<?php echo MAINSURL; ?>/images/logo/logo-color.png" alt="Intervalo Productivo">
 								</a>
 								<div id="main-header-nav" class="collapse navbar-collapse">
 									<ul class="nav navbar-nav main-nav">
@@ -109,7 +105,7 @@ global $pageActual;
 																		<li>
 																			<figure>
 																				<a href="#">
-																					<img width="80" height="80" src="./images/blog/megamenu-fp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </a>
+																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </a>
 																			</figure>
 																			<div class="contents">
 																				<h3>
@@ -121,7 +117,7 @@ global $pageActual;
 																		<li>
 																			<figure>
 																				<a href="#">
-																					<img width="80" height="80" src="./images/blog/megamenu-fp-2.jpg" alt="Improve Your Website Performance"> </a>
+																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-2.jpg" alt="Improve Your Website Performance"> </a>
 																			</figure>
 																			<div class="contents">
 																				<h3>
@@ -133,7 +129,7 @@ global $pageActual;
 																		<li>
 																			<figure>
 																				<a href="#">
-																					<img width="80" height="80" src="./images/blog/megamenu-fp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </a>
+																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </a>
 																			</figure>
 																			<div class="contents">
 																				<h3>
@@ -154,7 +150,7 @@ global $pageActual;
 																			<a href="#">
 																				<article>
 																					<figure class="megamenu-lp-bg-1">
-																						<img width="295" height="220" src="./images/blog/megamenu-lp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </figure>
+																						<img width="295" height="220" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </figure>
 																					<div class="contents">
 																						<span class="time">NOVEDAD</span>
 																						<h3>Conocé lo mejor de Mindfulness</h3>
@@ -166,7 +162,7 @@ global $pageActual;
 																			<a href="#">
 																				<article>
 																					<figure class="megamenu-lp-bg-2">
-																						<img width="295" height="220" src="./images/blog/megamenu-lp-2.jpg" alt="Improve Your Website Performance"> </figure>
+																						<img width="295" height="220" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-2.jpg" alt="Improve Your Website Performance"> </figure>
 																					<div class="contents">
 																						<span class="time">NOVEDAD</span>
 																						<h3>Nuevo Torneo Relampago de Futbol</h3>
@@ -178,7 +174,7 @@ global $pageActual;
 																			<a href="#">
 																				<article>
 																					<figure class="megamenu-lp-bg-3">
-																						<img width="295" height="440" src="./images/blog/megamenu-lp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </figure>
+																						<img width="295" height="440" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </figure>
 																					<div class="contents">
 																						<span class="time">NOVEDAD</span>
 																						<h3>Los mejores TIPS para mejorar tu entorno laboral</h3>

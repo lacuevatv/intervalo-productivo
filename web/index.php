@@ -8,12 +8,18 @@
 require_once 'inc/functions.php';
 
 //define la pageactual que se usa en toda la navegación
-global $pageActual;
-
+//global $pageActual;
+define('PAGEACTUAL', pageActual( cleanUri() ) );
 $pageActual = pageActual( cleanUri() );
 
-switch ( $pageActual ) {    
+switch ( PAGEACTUAL ) {   
+    case 'inicio':
+    case 'clientes':
+    case 'contacto':
+    getPage( PAGEACTUAL );
+    break;
+
     default:
-        getPage( $pageActual );
+        getPage( 'loop' );
     break;
 }

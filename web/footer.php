@@ -109,30 +109,30 @@
 	<!-- End #wrap -->
 
 	<div class="snackbars" id="form-output-global"></div>
-	<script src="js/core.min.js"></script>
-	<script src="js/theme.vendors.min.js"></script>
+	<script src="<?php echo MAINSURL; ?>/js/core.min.js"></script>
+	<script src="<?php echo MAINSURL; ?>/js/theme.vendors.min.js"></script>
 	
 	
 	
-	<script src="js/script.js"></script>
-	<script src="js/theme.min.js"></script>
+	<script src="<?php echo MAINSURL; ?>/js/script.js"></script>
+	<script src="<?php echo MAINSURL; ?>/js/theme.min.js"></script>
 	<!--<script src="js/slick.js"></script>-->
-	<script src="js/custom.js"></script>
+	<script src="<?php echo MAINSURL; ?>/js/custom.js"></script>
 	
 	
 
-	<script type="text/javascript" src="./vendors/themepunch/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.revolution.min.js"></script>
 
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.actions.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.carousel.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.kenburn.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.migration.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.parallax.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="./vendors/themepunch/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.carousel.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.kenburn.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.migration.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.video.min.js"></script>
 
 	<script type="text/javascript">function setREVStartSize(e){
 			try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
@@ -150,7 +150,7 @@
 	}else{
 		revapi19 = tpj("#rev_slider_19_1").show().revolution({
 			sliderType:"standard",
-			jsFileLocation:"./vendors/themepunch/extensions/",
+			jsFileLocation:"<?php echo MAINSURL; ?>/vendors/themepunch/extensions/",
 			sliderLayout:"fullscreen",
 			dottedOverlay:"none",
 			delay:9000,

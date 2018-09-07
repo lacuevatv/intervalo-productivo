@@ -109,131 +109,6 @@ function pageActual ( $uri ) {
 
 }//pageActual()
 
-//esta funcion devuelve el nombre de la categoria o nada sino lo es 
-function ver_categoria ( $uri ) {
-	global $categorias;
-	//ver si figura la variable cat en el url, en ese caso es categoria
-	$cat = isset($_REQUEST['cat']) ? $_REQUEST['cat'] : 'none';
-
-	$parseUrl = explode('/', $uri);
-	$RequestURI = $parseUrl[1];
-
-	for ($i=0; $i < count($categorias); $i++) { 
-		if ( $categorias[$i]['slug'] == $RequestURI ) {
-		$cat = $RequestURI;
-		break;
-		}
-	}
-
-	return $cat;
-
-}
-
-//esta funcion devuelve el nombre true si es categoria y false si no lo es, se le pasa un string
-function string_es_categoria ( $uri ) {
-	global $categorias;
-	
-	for ($i=0; $i < count($categorias); $i++) { 
-		if ( $categorias[$i]['slug'] == $uri ) {
-		return true;
-		break;
-		}
-	}
-	//sino encuentra la categoria en el url, entonces no lo es
-	return false;
-		
-}
-
-
-//esta funcion devuelve el nombre true si es categoria y false si no lo es, toma el url completo
-function es_categoria ( $uri ) {
-	global $categorias;
-	//ver si figura la variable cat en el url, en ese caso es categoria
-	$cat = isset($_REQUEST['cat'])?$_REQUEST['cat']:'none';
-	if ( $cat != 'none' ) {
-		return true;
-	} 
-	//si el url es bonito hay que parsearlo para buscar las categorias
-	$parseUrl = explode('/', $uri);
-
-	if ( count( $parseUrl ) >= 3 && $parseUrl[2] != '' ){
-		//si el index 2 figura en el url significa que es single
-		return false;
-	} else {
-		$RequestURI = $parseUrl[1];
-
-		for ($i=0; $i < count($categorias); $i++) { 
-			if ( $categorias[$i]['slug'] == $RequestURI ) {
-			return true;
-			break;
-			}
-		}
-		//sino encuentra la categoria en el url, entonces no lo es
-		return false;
-	}	
-}
-
-//esta funcion recupera el slug del row a partir de una categoria
-function getRowSlug($slug) {
-	global $categorias;
-	global $rows;
-	$rowName;
-	for ($i=0; $i < count($categorias); $i++) { 
-		if ( $categorias[$i]['slug'] == $slug ) {
-			$rowName = $categorias[$i]['row'];
-			break;
-		} else {
-			continue;
-		}
-	}
-
-	for ($i=0; $i < count($rows); $i++) { 
-		if ( $rowName == $rows[$i]['rowName'] ) {
-		return $rows[$i]['data']['slug'];
-		} else {
-			continue;
-		}
-	}
-	
-}
-
-//esta funcion recupera el nombre del row a partir del slug
-function getRowName($slug) {
-	global $rows;
-	
-	for ($i=0; $i < count($rows); $i++) { 
-		if ( $rows[$i]['data']['slug'] == $slug) {
-			return $rows[$i]['rowName'];
-		} else {
-			continue;
-		}
-	}	
-}
-
-//esta funcion recupera la data de la row a traves del slug
-function getRowData($slug) {
-	global $rows;
-	
-	for ($i=0; $i < count($rows); $i++) { 
-		if ( $rows[$i]['data']['slug'] == $slug) {
-			return $rows[$i];
-		} else {
-			continue;
-		}
-	}	
-}
-
-function getRowDatabyName($rowName) {
-	global $rows;
-	for ($i=0; $i < count($rows); $i++) { 
-		if ( $rows[$i]['rowName'] == $rowName) {
-			return $rows[$i];
-		} else {
-			continue;
-		}
-	}
-}
-
 
 /*
 ESTA FUNCIÓN TOMA LA VARIANTE DE ALGUNAS PAGINAS POR EJEMPLO NOTICIAS, EL SLUG ES UNA CATEGORIA O EL URL DE UNA NOTICIA
@@ -255,30 +130,6 @@ function getPageVar ( $uri ) {
 
 	return $slug;
 
-}
-
-//ve si es un row
-function es_row($string) {
-	global $rows;
-	for ($i=0; $i < count($rows) ; $i++) { 
-		if ( $string == $rows[$i]['data']['slug'] ) {
-			return true;
-		} else {
-			continue;
-		}
-	}
-	
-}
-
-//esta función toma el nombre de la categoría para mostrarlo en el front en caso de que sea distinto el nombre del slug
-function getNameCategoria( $categoria ) {
-	global $categorias;
-	for ($i=0; $i < count($categorias) ; $i++) { 
-		if ($categorias[$i]['slug'] == $categoria ) {
-			return $categorias[$i]['nombre'];
-			break;
-		}
-	}
 }
 
 //acorta el texto
@@ -307,45 +158,6 @@ function acortaTexto( $texto, $cantPalabras = 50, $final = null ) {
 	return $texto;
 }
 
-//devuelve el título de la página para <head><title>
-function SeoTitlePage ( $page ) {
-    $tituloBase   = SITETITLE;
-
-    //titulo cuando no es home ni noticias
-    if ( $page != 'inicio' && $page != 'noticias' ) {
-        //si la página no es home hay que separar la url que está unido por "-" para armar un nuevo título
-        $pageActualTitle = explode('-', $page);
-        $pageSEOTitle = ' |';
-        for ($i=0; $i < count($pageActualTitle); $i++) { 
-            $pageSEOTitle .= ' ';
-            $pageSEOTitle .= ucfirst($pageActualTitle[$i]);
-        }
-
-        $tituloBase .= $pageSEOTitle;
-    }
-
-    return $tituloBase;
-} //SeoTitlePage()
-
-
-//define el metadescription en la etiqueta Head para SEO
-function metaDescriptionText ( $pageActual, $noticia, $curso, $categoriaNoticias ) {
-	$metaDescription = METADESCRIPTION;
-	
-
-	if ( $noticia != 'none') {
-		global $dataNoticia;
-		$base = ' | Asociación de trabajadores de la Sanidad Argentina, Buenos Aires.';
-		$metaDescription = $dataNoticia['resumen'] . $base;
-	}
-
-	if ( $categoriaNoticias != 'none') {
-		$metaDescription = 'Últimas noticias ' .$categoriaNoticias. '. Asociación de trabajadores de la Sanidad Argentina, Buenos Aires.';
-	}
-
-	return $metaDescription;
-
-}//metaDescriptionText()
 
 /**
  * Checks if a request is a AJAX request
@@ -448,105 +260,6 @@ function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'non
 	return $loop;
 }
 
-//esta funcion es igual que la de arriba pero buscar por subcategoria y omite las categorias
-function getPostsBySubcategory( $categoria = 'all' , $subCategoria = 'all', $number = -1, $exclude = 'none', $status = 'publicado', $offset = 0 ) {
-	$connection = connectDB();
-	$tabla = 'posts';
-
-	if ( $offset != '0' ) {
-		$number = $offset.','.$number;
-	}
-
-	$query  = "SELECT * FROM " .$tabla;
-	$query .= " WHERE post_status='";
-	$query .= $status . "'";
-	if ( $categoria != 'all' ) {
-		$query .= " AND post_categoria = '".$categoria."'";
-	}
-	if ( $subCategoria != 'all' ) {
-		$query .= " AND post_subcategoria_tramites = '".$subCategoria."'";
-	} else {
-		$query .= " AND post_subcategoria_tramites != ''";
-	}
-	if ( $exclude != 'none' ) {
-		$query .= " AND post_url!='".$exclude."'";
-	}
-	$query .= " ORDER by post_subcategoria_tramites ASC , post_orden ASC";
-	if ( $number != -1 ) {
-		$query .= " LIMIT ".$number." ";
-	}
-	
-	$result = mysqli_query($connection, $query);
-	
-	closeDataBase( $connection );
-
-	if ( $result->num_rows == 0 ) {
-		$loop = null;
-	} else {
-
-		while ($row = $result->fetch_array()) {
-				$loop[] = $row;
-			}
-
-	}
-	
-	return $loop;
-}
-
-
-//realiza la búsqueda según parametros del buscador
-function getSearch( $busqueda, $offset = -1 ) {
-	if ($busqueda != '') {
-		$busqueda = trim($busqueda);
-		$connection = connectDB();
-		$tabla = 'posts';
-
-		$query  = "SELECT * FROM ".$tabla." WHERE (post_titulo LIKE '%" .$busqueda. "%') OR (post_contenido LIKE '%" .$busqueda. "%') OR (post_categoria LIKE '%" .$busqueda. "%')";
-		if ( $offset != -1 ) {
-		$query  .= " LIMIT " .$offset." ";
-		}
-		
-		$result = mysqli_query($connection, $query);
-
-		closeDataBase( $connection );
-
-		if ( $result->num_rows == 0 ) {
-			getTemplate( '404' );
-			return;
-		} else {
-
-			while ($row = $result->fetch_array()) {
-					$loop[] = $row;
-				}
-
-		}
-	
-	return $loop;
-	}
-}
-
-
-
-
-//Crea la paginación y los links de acuerdo a la cantidad de post dividido la cantidad a mostrar por pagina PARA BUSQUEDA
-function getPaginationSearch ( $busqueda, $postPerPage ) {
-	$loop = getSearch( $busqueda );
-	$totalPost = count($loop);
-	$cantPages = ceil($totalPost / $postPerPage);//devuelve valor redondeado 
-
-	if ( $cantPages < 2 || $busqueda == null ) {
-		return;
-	}
-
-	$data = array(
-		'numberPages' => $cantPages,
-		'categoria'   => 'buscar',
-		'postPerPage' => $postPerPage,
-	);
-	
-	getTemplate( 'pagination', $data );
-}
-
 
 //busca la noticia en particular y recoge los datos para pasar al template
 function singlePostData ( $postSlug ) {
@@ -590,6 +303,20 @@ function getPostById($id) {
 	closeDataBase( $connection );
 	
 	return $singlePost;
+}
+
+function postType( $slug ) {
+	$post = singlePostData($slug);
+	
+	if ( $post == null ) {
+		$postType = null;
+	} else {
+
+		$postType = $post['post_type'];
+
+	}
+
+	return $postType;
 }
 
 function getCategoryData($id) {
