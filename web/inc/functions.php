@@ -260,6 +260,51 @@ function getPosts( $postType, $categoria = 'none', $number = -1, $exclude = 'non
 	return $loop;
 }
 
+function getDestacados( $number ) {
+	$connection = connectDB();
+	$tabla = 'posts';
+
+	$query  = "SELECT * FROM " .$tabla ." WHERE post_type = 'acciones' AND post_destacado='1' ORDER by post_orden ASC LIMIT ". $number;
+	
+	$result = mysqli_query($connection, $query);
+	
+	closeDataBase( $connection );
+
+	if ( $result->num_rows == 0 ) {
+		$loop = null;
+	} else {
+
+		while ($row = $result->fetch_array()) {
+				$loop[] = $row;
+			}
+
+	}
+	
+	return $loop;
+}
+
+function getLasts( $number ) {
+	$connection = connectDB();
+	$tabla = 'posts';
+
+	$query  = "SELECT * FROM " .$tabla ." WHERE post_type = 'acciones' ORDER by post_timestamp DESC LIMIT ". $number;
+	
+	$result = mysqli_query($connection, $query);
+	
+	closeDataBase( $connection );
+
+	if ( $result->num_rows == 0 ) {
+		$loop = null;
+	} else {
+
+		while ($row = $result->fetch_array()) {
+				$loop[] = $row;
+			}
+
+	}
+	
+	return $loop;
+}
 
 //busca la noticia en particular y recoge los datos para pasar al template
 function singlePostData ( $postSlug ) {

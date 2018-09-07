@@ -12,6 +12,9 @@ if ( $slug != '' ) {
     $data = singlePostData( PAGEACTUAL );
 }
 
+global $headPost;
+$headPost = $data['post_head'];
+
 include 'header.php';
     
 getTemplate('turnos');
@@ -36,6 +39,8 @@ getTemplate('turnos');
     endif;
 
 ?>
+
+<?php if ($postType != 'promos') : ?>
 
 <!-- Start Contact -->
 <section class="section">
@@ -112,6 +117,7 @@ getTemplate('turnos');
     </div>
     
 </div>
-		
+
+<?php endif; ?>
 
 <?php include 'footer.php'; ?>

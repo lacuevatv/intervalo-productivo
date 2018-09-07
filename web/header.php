@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Intervalo Productivo</title>
+<meta charset="utf-8">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
+	
+	<?php 
+		//TITULO Y METADESCRIPTION
+		global $headPost;
+		
+		if ($headPost != '') {
+			echo $headPost;
+
+		} else {
+			//titulo por defecto, en archivo config
+			?>
+			<title><?php echo SITETITLE; ?></title>
+			<meta name="keywords" content="<?php echo METAKEYS; ?>">
+			<meta name="description" content="<?php echo METADESCRIPTION; ?>">
+
+		<?php }
+	?>
+
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme-vendors.css">
 	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme.css">
 	<link rel="stylesheet" href="<?php echo MAINSURL; ?>/css/theme-color/theme-neoclassic.css">
 	<script src="<?php echo MAINSURL; ?>/vendors/modernizr.min.js"></script>
-	<meta name="keywords" content="modern, creative, minimal">
-	<meta name="description" content="Intervalo Productivo">
 	
 	<link rel="stylesheet" type="text/css" href="<?php echo MAINSURL; ?>/vendors/themepunch/settings.css">
-	
 	<!--Slick CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo MAINSURL; ?>/css/slick.css">
 </head>
@@ -25,7 +38,7 @@
 <body class="footer-fixed">	
 	
 	<?php openPopUp(PAGEACTUAL); ?>
-	
+
 	<div id="wrap">
 	
 		<!-- Start Main Header -->
@@ -62,38 +75,20 @@
 															<div class="col-lg-2 megamenu-column">
 																<div class="widget widget_nav_menu">
 																	<h5 class="widget_title">Categorias</h5>
-																	<ul>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Pausas Activas</span>
-																			</a>
-																		</li>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Bienestar</span>
-																			</a>
-																		</li>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Salud</span>
-																			</a>
-																		</li>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Deportivo</span>
-																			</a>
-																		</li>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Eventos</span>
-																			</a>
-																		</li>
-																		<li class="menu-item">
-																			<a href="#">
-																				<span class="link-txt">Futbol Interempresarial</span>
-																			</a>
-																		</li>
-																	</ul>
+																	<?php 
+																	$categorias = getPosts('categorias');
+																	if ($categorias != null) : ?>
+																		<ul>
+																			<?php foreach ($categorias as $categoria) { ?>
+																			<li class="menu-item">
+																				<a href="<?php echo MAINSURL . '/' . $categoria['post_url']; ?>">
+																					<span class="link-txt"><?php echo $categoria['post_titulo']; ?></span>
+																				</a>
+																			</li>
+
+																		<?php } ?>
+																		</ul>
+																	<?php endif; ?>
 																</div>
 																<!-- /.custom-menu -->
 															</div>
@@ -102,42 +97,36 @@
 																<div class="widget widget_latest_posts_entries widget_latest_posts_entries_with_thumb latest-posts">
 																	<h5 class="widget_title"></h5>
 																	<ul>
-																		<li>
-																			<figure>
-																				<a href="#">
-																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </a>
-																			</figure>
-																			<div class="contents">
-																				<h3>
-																					<a href="i#">Gimnasia Laboral</a>
-																				</h3>
-																				<span class="time">Pausa Activa</span>
-																			</div>
-																		</li>
-																		<li>
-																			<figure>
-																				<a href="#">
-																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-2.jpg" alt="Improve Your Website Performance"> </a>
-																			</figure>
-																			<div class="contents">
-																				<h3>
-																					<a href="#">Masajes para Empresas</a>
-																				</h3>
-																				<span class="time">Bienestar</span>
-																			</div>
-																		</li>
-																		<li>
-																			<figure>
-																				<a href="#">
-																					<img width="80" height="80" src="<?php echo MAINSURL; ?>/images/blog/megamenu-fp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </a>
-																			</figure>
-																			<div class="contents">
-																				<h3>
-																					<a href="#">Yoga para Empresas</a>
-																				</h3>
-																				<span class="time">Bienestar</span>
-																			</div>
-																		</li>
+
+																		<?php $destacados = getDestacados( 3 );
+																		if ($destacados== null) {
+																			$destacados = getLasts( 3 );
+																		}
+
+																		foreach ( $destacados as $destacado ) {
+																			$imagen = UPLOADSURL . '/' . $destacado['post_imagen'];
+																			if ($destacado['post_imagen'] == '') {
+																				$imagen = MAINSURL . '/images/default-rectangular.png';
+																			}
+																			$categoria = getCategoryData($destacado['post_categoria']);
+																			?>
+																			<li>
+																				<figure>
+																					<a href="<?php echo MAINSURL . '/'. $categoria['slug'] . '/' . $destacado['post_url']; ?>">
+																						<img width="80" height="80" src="<?php echo $imagen; ?>" alt="<?php echo $destacado['post_titulo']; ?>">
+																					</a>
+																				</figure>
+																				<div class="contents">
+																					<h3>
+																						<a href="<?php echo MAINSURL . '/'. $categoria['slug'] . '/' . $destacado['post_url']; ?>">
+																						<?php echo $destacado['post_titulo']; ?>
+																						</a>
+																					</h3>
+																					<span class="time"><?php echo $categoria['nombre']; ?></span>
+																				</div>
+																			</li>
+																		<?php } ?>
+
 																	</ul>
 																</div>
 																<!-- /.widget -->
@@ -146,42 +135,35 @@
 															<div class="col-lg-6 megamenu-column d-flex flex-column align-items-stretch px-0">
 																<div class="widget widget_latest_posts_entries-style2 latest-posts d-flex flex-column align-items-stretch">
 																	<ul class="d-flex flex-column">
-																		<li class="masonry-item">
-																			<a href="#">
-																				<article>
-																					<figure class="megamenu-lp-bg-1">
-																						<img width="295" height="220" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-1.jpg" alt="Introducing Boo Universe and Live Builder"> </figure>
-																					<div class="contents">
-																						<span class="time">NOVEDAD</span>
-																						<h3>Conocé lo mejor de Mindfulness</h3>
-																					</div>
-																				</article>
-																			</a>
-																		</li>
-																		<li class="masonry-item">
-																			<a href="#">
-																				<article>
-																					<figure class="megamenu-lp-bg-2">
-																						<img width="295" height="220" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-2.jpg" alt="Improve Your Website Performance"> </figure>
-																					<div class="contents">
-																						<span class="time">NOVEDAD</span>
-																						<h3>Nuevo Torneo Relampago de Futbol</h3>
-																					</div>
-																				</article>
-																			</a>
-																		</li>
-																		<li class="masonry-item">
-																			<a href="#">
-																				<article>
-																					<figure class="megamenu-lp-bg-3">
-																						<img width="295" height="440" src="<?php echo MAINSURL; ?>/images/blog/megamenu-lp-3.jpg" alt="Let the Stories Unfold and Explore New Horizons"> </figure>
-																					<div class="contents">
-																						<span class="time">NOVEDAD</span>
-																						<h3>Los mejores TIPS para mejorar tu entorno laboral</h3>
-																					</div>
-																				</article>
-																			</a>
-																		</li>
+																		
+																		<?php 
+																		$promos = getPosts('promos', 'none', 3);
+																		if ($promos != null) :
+
+																			foreach ( $promos as $promo ) {
+																				$imagen = UPLOADSURL . '/'. $promo['post_imagen'];
+																				if ($promo['post_imagen'] == '') {
+																					$imagen = MAINSURL . '/images/default-rectangular-promos.jpg';
+																				}
+																				?>
+																				<li class="masonry-item">
+																					<a href="<?php echo $promo['post_link_externo']; ?>" target="_blank">
+																						<article>
+																							<figure class="megamenu-lp-bg-1">
+																								<img width="295" height="220" src="<?php echo $imagen; ?>" alt="<?php echo $promo['post_titulo']; ?>"> </figure>
+																							<div class="contents">
+																								<span class="time">NOVEDAD</span>
+																								<h3>
+																									<?php echo $promo['post_titulo']; ?>
+																								</h3>
+																							</div>
+																						</article>
+																					</a>
+																				</li>		
+																			<?php }
+																			
+																		endif; ?>
+
 																	</ul>
 																</div>
 																<!-- /.widget -->
