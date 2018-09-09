@@ -17,6 +17,8 @@ function getTemplate ($name, $data = array() ) {
 	$namePage = TEMPLATEDIR . '/'. $name. '.php';
 	if (is_file($namePage)) {
 		include $namePage;
+	} else {
+		include TEMPLATEDIR . '/error.php';
 	}
 }
 

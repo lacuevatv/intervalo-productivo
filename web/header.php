@@ -145,9 +145,15 @@
 																				if ($promo['post_imagen'] == '') {
 																					$imagen = MAINSURL . '/images/default-rectangular-promos.jpg';
 																				}
+
+																				if ( $promo['post_link_externo'] == '' ) {
+																					$aTag = '<a href="'.MAINSURL . '/promos/' .$promo['post_url'].'">';
+																				} else {
+																					$aTag = '<a href="'.$promo['post_link_externo'].'" target="_blank">';
+																				}
 																				?>
 																				<li class="masonry-item">
-																					<a href="<?php echo $promo['post_link_externo']; ?>" target="_blank">
+																					<?php echo $aTag; ?>
 																						<article>
 																							<figure class="megamenu-lp-bg-1">
 																								<img width="295" height="220" src="<?php echo $imagen; ?>" alt="<?php echo $promo['post_titulo']; ?>"> </figure>

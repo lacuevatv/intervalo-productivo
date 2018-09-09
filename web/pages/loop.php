@@ -1,7 +1,12 @@
 <?php
 
 //definimos postType para tempate
-$postType = postType( PAGEACTUAL );
+if ( PAGEACTUAL == 'promos' ) {
+    $postType = 'promos';
+} else  {
+    $postType = postType( PAGEACTUAL );
+}
+
 
 //ver si hay un slug a buscar
 $slug = getPageVar( cleanUri() );
@@ -26,13 +31,13 @@ getTemplate('turnos');
             case 'acciones':
             case 'categorias':
                 
-            getTemplate('single', $data);
+                getTemplate('single', $data);
 
             break;
 
             case 'promos':
                 
-                getTemplate('promos-single', $data);
+                getTemplate('error', $data);
 
             break;
         }
