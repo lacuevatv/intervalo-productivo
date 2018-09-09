@@ -27,7 +27,7 @@ if ( $data['post_type'] == 'categorias' ) {
             <div class="post-contents">
                 <header>
                     <h2 class="entry-title pb-25">
-                        <a href="#" rel="bookmark"><?php echo $data['post_titulo']; ?></a>
+                        <a href="<?php echo $url; ?>" rel="bookmark"><?php echo $data['post_titulo']; ?></a>
                     </h2>
                 </header>
             </div><!-- /.contents -->

@@ -107,7 +107,7 @@ function get_footer_scripts ($modulo) { ?>
 		
 		default: ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-noticias.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-posts.js"></script>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-sliders.js"></script>
 			<?php break;

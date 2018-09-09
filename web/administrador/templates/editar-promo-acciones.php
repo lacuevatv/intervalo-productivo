@@ -123,18 +123,18 @@ if ( $postId != null ) {
 				
 			</div><!-- // row -->
 
-			<div class="row">	
+			<!--<div class="row">	
 				<div class="col">
-<!------ OTROS :  ACORDEON  ---------->
+
 					<div id="accordion-post">
 
-	<!------ CONTENIDO  ---------->
+
 						<h3>Contenido</h3>
 						<div class="form-group">
 							<label for="post_contenido" class="larger-label">Contenido</label>
 							<textarea class="editor-enriquecido" name="post_contenido"><?php echo ($post) ? $post['post_contenido'] : ''; ?></textarea>
 						</div>
-	<!------ HEAD ---------->
+
 						<h3>Head</h3>
 						<div>
 							<div class="form-group">
@@ -142,7 +142,7 @@ if ( $postId != null ) {
 								<textarea name="post_head"><?php echo ($post) ? $post['post_head'] : ''; ?></textarea>
 							</div>
 						</div>
-	<!------ VIDEO DESTACADO ---------->
+	
 						<h3>Video destacado</h3>
 						<div>
 							<div class="form-group">
@@ -152,7 +152,7 @@ if ( $postId != null ) {
 							</div>
 						</div>
 
-	<!------ GALERIA DE IMAGENES ---------->
+	
 						<h3>Galeria de imagenes</h3>
 						<div>
 							<div class="row">
@@ -177,7 +177,7 @@ if ( $postId != null ) {
 									<p><small>Se pueden subir muchas imagenes a la vez, el tamaño  ideal es de 1440 x 545</small></p>
 								</div>
 							</div>
-	<!------ IMAGENES DE LA GALERIA DE LA NOTICIA ---------->
+	
 							<ul class="galeria-imagenes-wrapper">
 							<?php 
 							
@@ -209,10 +209,10 @@ if ( $postId != null ) {
 							</ul>
 						</div>
 						
-				   	</div><!-- //#accordion -->
-			   	</div><!-- // col -->
+				   	</div>
+			   	</div>
 			   	
-			</div><!-- // row -->
+			</div> -->
 			<hr>
 		   	<div class="row">	
 				<div class="col">

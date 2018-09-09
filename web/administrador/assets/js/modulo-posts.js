@@ -517,6 +517,7 @@ $(document).ready(function(){
             formData.append('post_destacado', '1');
         }
 
+        formData.append('post_head', String($('textarea[name="post_head"]').text()) );
         
         //envia el formulario
 		$.ajax({
