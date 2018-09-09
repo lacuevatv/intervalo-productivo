@@ -4,6 +4,13 @@ MAINSURL . '/images/default-cuadrado.png';
 if ($data['post_imagen'] != '') {
     $imagen = '<img style="max-width:initial;width:150%;" src="'.UPLOADSURL . '/' . $data['post_imagen'].'" alt="'. $data['post_titulo'] .'">';
 }
+if ( $data['post_type'] == 'categorias' ) {
+    $url = MAINSURL.'/'. $data['post_url'];
+} elseif ( $data['post_type'] == 'acciones' ) {
+    $url = MAINSURL.'/'. getCategoryData($data['post_categoria'])['slug'] .'/'. $data['post_url'];
+}
+
+
 ?>
 <div class="col-lg-4 col-sm-10 offset-sm-1 offset-lg-0 px-0">
 
@@ -27,7 +34,7 @@ if ($data['post_imagen'] != '') {
         
         </div> <!-- /.blog-post-inner -->
         
-        <a href="<?php echo $data['post_url']; ?>" class="overlay-link"></a>
+        <a href="<?php echo $url; ?>" class="overlay-link"></a>
 
     </article>
 

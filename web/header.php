@@ -65,7 +65,7 @@
 										
 										<li class="menu-item local-scroll"><a href="<?php echo MAINSURL; ?>/clientes"><span class="link-txt">Portfolio</span></a></li>
 										<li class="menu-item megamenu">
-											<a href="#">
+											<a href="<?php echo MAINSURL; ?>/acciones">
 												<span class="link-txt">Acciones</span>
 											</a>
 											<ul class="nav-item-children">

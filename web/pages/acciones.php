@@ -1,49 +1,54 @@
 <?php
 
-//definimos postType para tempate
-$postType = postType( PAGEACTUAL );
-
-//ver si hay un slug a buscar
-$slug = getPageVar( cleanUri() );
-
-if ( $slug != '' ) {
-    $data = singlePostData( $slug );
-} else {
-    $data = singlePostData( PAGEACTUAL );
-}
-
-global $headPost;
-$headPost = $data['post_head'];
-
 include 'header.php';
     
 getTemplate('turnos');
-
-    if ( $data != null ) :
-
-        //template de la página:
-        switch ($postType) {
-            case 'acciones':
-            case 'categorias':
-                
-            getTemplate('single', $data);
-
-            break;
-
-            case 'promos':
-                
-                getTemplate('promos-single', $data);
-
-            break;
-        }
-
-    else : 
-        getTemplate('error');
-    endif;
-
 ?>
 
-<?php if ($postType != 'promos') : ?>
+<section class="section pt-120" id="works">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 mx-auto">
+                <header class="section-title section-title-resolve section-title-default" data-plugin-resolve="true" data-plugin-resolve-options="{ &quot;seperator&quot;: &quot;chars&quot; }">
+                    <h5 class="subtitle md text-uppercase">Nuestras Acciones</h5>
+                    <h2 class="title">Generamos Sinergia</h2>
+                </header>
+            
+
+            </div> 
+
+        </div> 
+    </div> 
+
+
+</section>
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row mx-0">
+
+            <?php 
+            $posts = getPosts('acciones');
+            
+            if ( $posts != null ) {
+                foreach ( $posts as $post ) {
+                    getTemplate('loop-posts', $post); 
+                }
+            }
+            ?>
+            
+            <div class="col-md-12 pb-3 pt-5">
+                
+            </div><!-- /.col-md-12 -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</section>
 
 <!-- Start Contact -->
 <section class="section">
@@ -121,6 +126,6 @@ getTemplate('turnos');
     
 </div>
 
-<?php endif; ?>
+
 
 <?php include 'footer.php'; ?>

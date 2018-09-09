@@ -28,12 +28,12 @@
 						<h3 class="widget-title">Navegacion</h3>
 						<div class="widget widget_nav_menu">
 							<ul class="menu">
-								<li class="local-scroll"><a href="index.html">Inicio</a></li>
-								<li class="local-scroll"><a href="#works">Acciones</a></li>
-								<li class="local-scroll"><a href="clientes.html">Clientes</a></li>
-								<li class="local-scroll"><a href="http://www.intervaloproductivo.com.ar/turnos">Turnos</a></li>
-								<li class="local-scroll"><a href="http://www.intervaloproductivo.com.ar/blog">Blog</a></li>
-								<li class="local-scroll"><a href="contacto.html">Contacto</a></li>
+								<li class="local-scroll"><a href="<?php echo MAINSURL; ?>">Inicio</a></li>
+								<li class="local-scroll"><a href="<?php echo MAINSURL; ?>/acciones">Acciones</a></li>
+								<li class="local-scroll"><a href="<?php echo MAINSURL; ?>/clientes">Clientes</a></li>
+								<li class="local-scroll"><a href="http://www.intervaloproductivo.com.ar/turnos" target="_blank">Turnos</a></li>
+								<li class="local-scroll"><a href="http://www.intervaloproductivo.com.ar/blog" target="_blank">Blog</a></li>
+								<li class="local-scroll"><a href="<?php echo MAINSURL; ?>/contacto">Contacto</a></li>
 							
 							</ul>
 						</div> <!-- /.widget widget_nav_menu -->
@@ -44,13 +44,13 @@
 						<h3 class="widget-title">Categorias</h3>
 						<div class="widget widget_nav_menu">
 							<ul class="menu">
-								<li class="local-scroll"><a href="#">Pausas Activas</a></li>
-								<li class="local-scroll"><a href="#works">Bienestar</a></li>
-								<li class="local-scroll"><a href="#features">Salud</a></li>
-								<li class="local-scroll"><a href="#experience">Belleza</a></li>
-								<li class="local-scroll"><a href="#shop">Deportivo</a></li>
-								
-							
+							<?php $categorias = getPosts('categorias');
+							if ( $categorias != null ) {
+								foreach ( $categorias as $categoria ) {
+									echo '<li class="local-scroll"><a href="'.MAINSURL . '/' .$categoria['post_url'].'">'.$categoria['post_titulo'].'</a></li>';
+								}
+							}
+							?>
 							</ul>
 						</div> <!-- /.widget widget_nav_menu -->
 
@@ -61,11 +61,17 @@
 								<h3 class="widget-title">Más solitados</h3>
 								<div class="widget widget_nav_menu">
 									<ul class="menu">
-										<li class="local-scroll"><a href="#">Masajes para empresas</a></li>
-										<li class="local-scroll"><a href="#works">Gimnasia Laboral</a></li>
-										<li class="local-scroll"><a href="#features">Yoga para empresas</a></li>
-										<li class="local-scroll"><a href="#experience">Pausa Activa Laboral</a></li>
-										
+
+									<?php $destacados = getDestacados( 4 );
+										if ($destacados== null) {
+											$destacados = getLasts( 4 );
+										}
+
+										foreach ( $destacados as $destacado ) {
+										 echo '<li class="local-scroll"><a href="'.MAINSURL . '/'.getCategoryData($destacado['post_categoria'])['slug'].'/'.$destacado['post_url'].'">'.$destacado['post_titulo'].'</a></li>';
+										}
+									?>
+									
 									</ul>
 								</div> <!-- /.widget widget_nav_menu -->
 
