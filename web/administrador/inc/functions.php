@@ -160,3 +160,26 @@ function getUsers() {
 
 	return $users;
 }
+
+function getCategoryData($id) {
+	$connection = connectDB();
+	$tabla = 'posts';
+
+	$query  = "SELECT * FROM " .$tabla. " WHERE post_ID='".$id."' LIMIT 1 ";
+	$result = mysqli_query($connection, $query);
+
+	closeDataBase( $connection );
+
+	if ( $result->num_rows == 0 ) {
+		$singlePost = null;
+	} else {
+
+		$singlePost = mysqli_fetch_array($result);
+		
+		return array(
+			'nombre' => $singlePost['post_titulo'],
+			'slug' => $singlePost['post_url'],
+		);
+	}
+
+}
