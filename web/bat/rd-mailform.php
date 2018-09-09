@@ -82,6 +82,12 @@ try {
         array($subject, $_SERVER['SERVER_NAME']),
         $template);
 
+
+    /*
+     * GUARDA EL CONTACTO EN BASE DE DATOS
+    */
+    savecontact( $_POST );
+
     $mail = new PHPMailer();
 
 
@@ -144,3 +150,5 @@ try {
 } catch (Exception $e) {
     die('MF255');
 }
+
+

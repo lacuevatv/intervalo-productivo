@@ -67,16 +67,15 @@
       </section><!-- //modulo -->
     </div><!-- //columna -->
 
-    <div class="col-30">
-      <!-- modulo -->
+    <!--<div class="col-30">
       <section>
         <div class="modulo-wrapper">
           <h2>Biblioteca de medios</h2>
           <p>Subir, borrar y manipular archivos e imagenes.</p>
           <p><a class="btn btn-primary" href="index.php?admin=biblioteca-medios" role="button">Ir a la Biblioteca</a></p>
         </div>
-      </section><!-- //modulo -->
-    </div><!-- //columna -->
+      </section>
+    </div>-->
 
   </div><!-- //row -->
 </div><!-- //containre -->

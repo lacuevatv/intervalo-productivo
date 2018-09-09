@@ -73,10 +73,10 @@ load_module( 'contactos' );
 							<td class="font-reduce">
 	                            <?php echo utf8_decode($suscriptores[$i]['contacto_mensaje']); ?>
 							<td>
-								<?php echo date('d.m.y' ,strtotime($suscriptores[$i]['contacto_fecha_formulario']) ); ?>
+								<?php echo date('d.m.y' ,strtotime($suscriptores[$i]['fecha_formulario']) ); ?>
 							</td>
 							<td>
-								<button title="Borrar suscriptor" class="del-user" data-id="<?php echo $suscriptores[$i]['id']; ?>">
+								<button title="Borrar suscriptor" class="del-user" data-id="<?php echo $suscriptores[$i]['contacto_id']; ?>">
 									<img src="<?php echo URLADMINISTRADOR; ?>/assets/images/delbtn.png" alt="Borrar usuario">
 								</button>
 							</td>

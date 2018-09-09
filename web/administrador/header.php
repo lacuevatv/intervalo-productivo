@@ -46,9 +46,9 @@ if(!defined("SECUREACCESS"))
         <div id="menu-top" class="menus-top-wrapper">
   <!--menu modulo asinado-->
           <ul class="menu-top menu-left">
-            <li>
+            <!--<li>
               <a href="index.php?admin=contacts" role="button">Contactos</a>
-            </li>
+            </li>-->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
               <ul class="dropdown-menu">
