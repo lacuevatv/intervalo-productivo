@@ -138,8 +138,8 @@ if ( $postId != null ) {
 						<h3>Head</h3>
 						<div>
 							<div class="form-group">
-								<label for="post_contenido" class="larger-label">Etiqueta para incluir html en el head</label>
-								<textarea name="post_head"><?php echo ($post) ? $post['post_head'] : ''; ?></textarea>
+								<label for="post_head" class="larger-label">Etiqueta para incluir html en el head</label>
+								<textarea id="post_head"><?php echo ($post) ? unserialize($post['post_head']) : ''; ?></textarea>
 							</div>
 						</div>
 	

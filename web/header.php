@@ -11,7 +11,11 @@
 		global $headPost;
 		
 		if ($headPost != '') {
-			echo unserialize($headPost);
+			$headPost = unserialize($headPost);
+			if ( strpos( $headPost, '<title>' ) === false ) {
+				echo '<title>'. SITETITLE . '</title>';
+			}
+			echo $headPost;
 
 		} else {
 			//titulo por defecto, en archivo config
