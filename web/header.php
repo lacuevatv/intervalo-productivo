@@ -11,7 +11,7 @@
 		global $headPost;
 		
 		if ($headPost != '') {
-			echo $headPost;
+			echo unserialize($headPost);
 
 		} else {
 			//titulo por defecto, en archivo config

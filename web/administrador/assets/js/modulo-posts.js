@@ -517,7 +517,7 @@ $(document).ready(function(){
             formData.append('post_destacado', '1');
         }
 
-        formData.append('post_head', String($('textarea[name="post_head"]').text()) );
+        formData.append('post_head', JSON.stringify($('#post_head').val()) );
         
         //envia el formulario
 		$.ajax({
@@ -526,7 +526,7 @@ $(document).ready(function(){
 			data: formData,
 			cache: false,
 		    contentType: false,
-		    processData: false,
+            processData: false,
             //funcion antes de enviar
             beforeSend: function() {
             	console.log('enviando formulario');

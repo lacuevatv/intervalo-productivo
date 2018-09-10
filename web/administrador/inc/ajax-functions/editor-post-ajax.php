@@ -47,6 +47,16 @@ if ( isAjax() ) {
     $orden               = filter_var($orden,FILTER_SANITIZE_NUMBER_INT);
     $linkExterno         = filter_var($linkExterno,FILTER_SANITIZE_URL);
     
+    //viene como json así que los decodiamos
+    $postHead            = json_decode($postHead);
+    //y despues se serializa para proteger todo
+    $postHead            = serialize($postHead);
+    
+    
+    //viene con comillas, así que hay que sacarle la primera y la ultima para grabarlo bien en la base de datos
+    /*$postHead = substr($postHead, 0,-1);
+    $postHead = substr($postHead, 1 );*/
+    
 	//si hay una galería hay que armar un array con las imagenes y luego serializarlas
 	if ( $postGaleria == 'true' ) {
 		//en la base de datos se escribe como 1 y 0 así que traduzco a 1 y 0 para que se guarde correctamente
@@ -138,6 +148,8 @@ if ( isAjax() ) {
             echo 'updated';
         } else {
             echo 'error';
+            //echo $query;
+            //print_r($connection);
         }	
 	}
 
