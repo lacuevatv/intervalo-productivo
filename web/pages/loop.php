@@ -78,6 +78,10 @@ getTemplate('turnos');
             
                 <div class="contact-form contact-default contact-default-alt2">
                     <form class="rd-mailform" data-form-output="form-output-global" data-form-type="forms" method="post" action="bat/rd-mailform.php">
+
+                        <input name="accion" type="hidden" value="<?php echo $data['post_titulo']; ?>" />
+                        
+                        
                         <div class="row">
                             <p class="col-lg-4">
                                 <span class="form-group">
