@@ -11,7 +11,7 @@
 
 						
 						<a href="index.html" class="navbar-brand d-sm-none d-md-none d-lg-inline-block">
-							<img src="./images/logo/logo-color.png" alt="Intervalo Productivo">
+							<img src="<?php echo MAINSURL; ?>/images/logo/logo-color.png" alt="Intervalo Productivo">
 						</a>
 						<ul class="social-icon faded scheme-white social-icon-lg" >
 									<li><a href="https://www.facebook.com/Intervalo-Productivo-455420774469752/?fref=ts" target="_blank"><i class="fa fa-facebook" style="font-size:35px;"></i></a></li>
