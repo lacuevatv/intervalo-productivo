@@ -100,7 +100,14 @@ if ( $data['post_imagen'] != '' ) {
                 
             </div>
             <div class="col-lg-8">
-              
+
+                <?php if ( $data['post_contenido'] != '' ) : ?>
+
+                <div class="wrapper-contenido">
+                    <?php echo $data['post_contenido']; ?>
+                </div>
+                <?php endif; ?>
+            
                 <?php if ( $data['post_tabs'] != '' ) : ?>
                 <div class="tabs tabs-border-center center-list tabs-border-center-alt tabs-border-center-alt2 reset-nav-tab-styles"> 
 

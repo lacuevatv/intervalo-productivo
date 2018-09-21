@@ -125,109 +125,111 @@
 	<!--<script src="js/slick.js"></script>-->
 	<script src="<?php echo MAINSURL; ?>/js/custom.js"></script>
 	
-	
+	<?php if ( PAGEACTUAL == 'inicio' ) : ?>
 
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.revolution.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/jquery.themepunch.revolution.min.js"></script>
 
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.actions.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.carousel.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.kenburn.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.migration.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.parallax.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.video.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.actions.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.carousel.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.kenburn.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.layeranimation.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.migration.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.navigation.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.parallax.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.slideanims.min.js"></script>
+		<script type="text/javascript" src="<?php echo MAINSURL; ?>/vendors/themepunch/extensions/revolution.extension.video.min.js"></script>
 
-	<script type="text/javascript">function setREVStartSize(e){
-			try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
-				if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
-			}catch(d){console.log("Failure at Presize of Slider:"+d)}
-		};</script>
+		<script type="text/javascript">function setREVStartSize(e){
+				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+				}catch(d){console.log("Failure at Presize of Slider:"+d)}
+			};</script>
 
-		<script type="text/javascript">
-	var revapi19,
-	tpj=jQuery;
+			<script type="text/javascript">
+		var revapi19,
+		tpj=jQuery;
 
-	tpj(document).ready(function() {
-	if(tpj("#rev_slider_19_1").revolution == undefined){
-		revslider_showDoubleJqueryError("#rev_slider_19_1");
-	}else{
-		revapi19 = tpj("#rev_slider_19_1").show().revolution({
-			sliderType:"standard",
-			jsFileLocation:"<?php echo MAINSURL; ?>/vendors/themepunch/extensions/",
-			sliderLayout:"fullscreen",
-			dottedOverlay:"none",
-			delay:9000,
-			navigation: {
-				keyboardNavigation:"off",
-				keyboard_direction: "horizontal",
-				mouseScrollNavigation:"off",
-							mouseScrollReverse:"default",
-				onHoverStop:"off",
-				arrows: {
-					style:"boo2018",
-					enable:true,
-					hide_onmobile:false,
-					hide_onleave:true,
-					hide_delay:200,
-					hide_delay_mobile:1200,
-					tmp:'<div class="tp-arr-allwrapper">	<div class="tp-arr-imgholder"></div></div>',
-					left: {
-						h_align:"left",
-						v_align:"center",
-						h_offset:0,
-						v_offset:0
-					},
-					right: {
-						h_align:"right",
-						v_align:"center",
-						h_offset:0,
-						v_offset:0
+		tpj(document).ready(function() {
+		if(tpj("#rev_slider_19_1").revolution == undefined){
+			revslider_showDoubleJqueryError("#rev_slider_19_1");
+		}else{
+			revapi19 = tpj("#rev_slider_19_1").show().revolution({
+				sliderType:"standard",
+				jsFileLocation:"<?php echo MAINSURL; ?>/vendors/themepunch/extensions/",
+				sliderLayout:"fullscreen",
+				dottedOverlay:"none",
+				delay:9000,
+				navigation: {
+					keyboardNavigation:"off",
+					keyboard_direction: "horizontal",
+					mouseScrollNavigation:"off",
+								mouseScrollReverse:"default",
+					onHoverStop:"off",
+					arrows: {
+						style:"boo2018",
+						enable:true,
+						hide_onmobile:false,
+						hide_onleave:true,
+						hide_delay:200,
+						hide_delay_mobile:1200,
+						tmp:'<div class="tp-arr-allwrapper">	<div class="tp-arr-imgholder"></div></div>',
+						left: {
+							h_align:"left",
+							v_align:"center",
+							h_offset:0,
+							v_offset:0
+						},
+						right: {
+							h_align:"right",
+							v_align:"center",
+							h_offset:0,
+							v_offset:0
+						}
 					}
+				},
+				responsiveLevels:[1240,1024,778,480],
+				visibilityLevels:[1240,1024,778,480],
+				gridwidth:[1240,1024,778,480],
+				gridheight:[868,768,960,720],
+				lazyType:"none",
+				parallax: {
+					type:"scroll",
+					origo:"enterpoint",
+					speed:400,
+					speedbg:0,
+					speedls:0,
+					levels:[2,4,6,8,10,12,14,16,18,20,47,48,49,50,51,55],
+				},
+				shadow:0,
+				spinner:"spinner0",
+				stopLoop:"off",
+				stopAfterLoops:-1,
+				stopAtSlide:-1,
+				shuffle:"off",
+				autoHeight:"off",
+				fullScreenAutoWidth:"off",
+				fullScreenAlignForce:"off",
+				fullScreenOffsetContainer: "",
+				fullScreenOffset: "",
+				disableProgressBar:"on",
+				hideThumbsOnMobile:"off",
+				hideSliderAtLimit:0,
+				hideCaptionAtLimit:0,
+				hideAllCaptionAtLilmit:0,
+				debugMode:false,
+				fallbacks: {
+					simplifyAll:"off",
+					nextSlideOnWindowFocus:"off",
+					disableFocusListener:false,
 				}
-			},
-			responsiveLevels:[1240,1024,778,480],
-			visibilityLevels:[1240,1024,778,480],
-			gridwidth:[1240,1024,778,480],
-			gridheight:[868,768,960,720],
-			lazyType:"none",
-			parallax: {
-				type:"scroll",
-				origo:"enterpoint",
-				speed:400,
-				speedbg:0,
-				speedls:0,
-				levels:[2,4,6,8,10,12,14,16,18,20,47,48,49,50,51,55],
-			},
-			shadow:0,
-			spinner:"spinner0",
-			stopLoop:"off",
-			stopAfterLoops:-1,
-			stopAtSlide:-1,
-			shuffle:"off",
-			autoHeight:"off",
-			fullScreenAutoWidth:"off",
-			fullScreenAlignForce:"off",
-			fullScreenOffsetContainer: "",
-			fullScreenOffset: "",
-			disableProgressBar:"on",
-			hideThumbsOnMobile:"off",
-			hideSliderAtLimit:0,
-			hideCaptionAtLimit:0,
-			hideAllCaptionAtLilmit:0,
-			debugMode:false,
-			fallbacks: {
-				simplifyAll:"off",
-				nextSlideOnWindowFocus:"off",
-				disableFocusListener:false,
-			}
-		});
-	}
+			});
+		}
 
-	});	/*ready*/
-	</script>
+		});	/*ready*/
+		</script>
+
+	<?php endif; ?>
 
 </body>
 
